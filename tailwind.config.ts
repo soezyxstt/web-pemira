@@ -72,6 +72,13 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        header: ['var(--font-header)'],
+        body: ['var(--font-body)'],
+        bodyBold: ['var(--font-body-bold)'],
+        bodyBoldItalic: ['var(--font-body-bold-italic)'],
+        bodyItalic: ['var(--font-body-italic)'],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

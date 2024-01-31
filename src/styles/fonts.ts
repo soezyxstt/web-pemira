@@ -1,9 +1,26 @@
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 
-const Propagation = localFont({ src: 'fonts/PropagationRegular.ttf' })
-const TangoSans = localFont({ src: '/fonts/TangoSans.ttf' })
-const TangoSansBold = localFont({ src: '/fonts/TangoSans_Bold.ttf' })
-const TangoSansBoldItalic = localFont({ src: '/fonts/TangoSans_BoldItalic.ttf' })
-const TangoSansItalic = localFont({ src: '/fonts/TangoSans_Italic.ttf' })
+const header = localFont({
+  src: "fonts/PropagationRegular.ttf",
+  display: "swap",
+  variable: "--font-header",
+});
+const body = localFont({
+  src: "/fonts/TangoSans.ttf",
+  display: "swap",
+  variable: "--font-body",
+});
+const bodyBold = localFont({
+  src: "/fonts/TangoSans_Bold.ttf",
+  variable: "--font-body-bold",
+});
+const bodyBoldItalic = localFont({
+  src: "/fonts/TangoSans_BoldItalic.ttf",
+  variable: "--font-body-bold-italic",
+});
+const bodyItalic = localFont({
+  src: "/fonts/TangoSans_Italic.ttf",
+  variable: "--font-body-italic",
+});
 
-export { Propagation, TangoSans, TangoSansBold, TangoSansBoldItalic, TangoSansItalic }
+export { header, body, bodyBold, bodyBoldItalic, bodyItalic };
