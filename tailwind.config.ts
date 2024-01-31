@@ -19,6 +19,38 @@ const config = {
     },
     extend: {
       colors: {
+        red: {
+          1: "#ff855a",
+          2: "#f95426",
+          3: "#d2391a",
+          4: "#ab1d0e",
+          5: "#840202",
+        },
+        brown: {
+          1: "#f4d376",
+          2: "#ffc152",
+          3: "#eda537",
+          4: "#db8a1b",
+          5: "#c96e00",
+        },
+        teal: {
+          1: "#0498a0",
+          2: "#018391",
+          3: "#046977",
+          4: "#074f5e",
+          5: "#0a3544",
+        },
+        blue: {
+          1: "#79cad8",
+          2: "#55b7cc",
+          3: "#3997b1",
+          4: "#1d7797",
+          5: "#01577c",
+        },
+        navy: "#021b41",
+        orange: "#ea660c",
+        cream: "#f4e3cb",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -72,13 +104,6 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      fontFamily: {
-        header: ['var(--font-header)'],
-        body: ['var(--font-body)'],
-        bodyBold: ['var(--font-body-bold)'],
-        bodyBoldItalic: ['var(--font-body-bold-italic)'],
-        bodyItalic: ['var(--font-body-italic)'],
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],

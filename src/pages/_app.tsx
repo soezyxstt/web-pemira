@@ -5,16 +5,19 @@ import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
+import Layout from "@/layout";
 
-const MyApp: AppType<{ session: Session | null }> = ({
+const Pemira: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </SessionProvider>
   );
 };
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(Pemira);

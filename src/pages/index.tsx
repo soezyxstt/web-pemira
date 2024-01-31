@@ -1,20 +1,12 @@
-import Head from "next/head";
-import {
-  body
-} from '~/styles/fonts';
+import { body } from "@fonts";
 
 export default function Home() {
-
   return (
     <>
-      <Head>
-        <title>PEMIRA ITB</title>
-        <meta name="description" content="Website Pemilu Raya ITB" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={`${body.className} flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white text-[5rem]`}>
-        Test
-      </main>
+      <div className="flex flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-[5rem] text-white">
+        <div className="">Text</div>
+        <h2 className="">This is an Header</h2>
+      </div>
     </>
   );
 }

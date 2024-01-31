@@ -1,12 +1,22 @@
-import { ReactNode } from 'react'
-import { TangoSans } from '~/styles/fonts'
+import { ReactNode } from "react";
+import Head from "next/head";
+import Navbar from "./navbar";
+import Footer from "./footer";
+import { body } from '@fonts';
 
-const Layout = ({ children }: { children: ReactNode }) => (
-  <div className={`${TangoSans.className} flex flex-col items-center justify-center min-h-screen py-2`}>
-    <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-      {children}
-    </main>
-  </div>
-)
+const Layout = ({ children }: { children?: ReactNode }) => (
+  <>
+    <div className={`${body} flex min-h-screen flex-col`}>
+      <Head>
+        <title>PEMIRA ITB</title>
+        <meta name="description" content="Website Pemilu Raya ITB" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Navbar />
+      <main className="flex flex-1 flex-col *:flex-1">{children}</main>
+    </div>
+    <Footer />
+  </>
+);
 
-export default Layout
+export default Layout;
