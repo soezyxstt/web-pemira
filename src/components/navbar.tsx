@@ -83,6 +83,9 @@ const Navbar = () => {
               className={`mb-4 flex flex-col items-center text-cream *:py-3 ${body.className}`}
             >
               <li onClick={() => setIsExpanded(false)}>
+                <Link href="/">Home</Link>
+              </li>
+              <li onClick={() => setIsExpanded(false)}>
                 <Link href="/profil-calon">Profil Calon</Link>
               </li>
               <li onClick={() => setIsExpanded(false)}>
