@@ -2,11 +2,9 @@ import localFont from "next/font/local";
 
 const header = localFont({
   src: "fonts/PropagationRegular.ttf",
-  display: "swap",
 });
 const body = localFont({
   src: "/fonts/TangoSans.ttf",
-  display: "swap",
 });
 const bodyBold = localFont({
   src: "/fonts/TangoSans_Bold.ttf",

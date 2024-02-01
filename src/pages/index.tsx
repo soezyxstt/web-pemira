@@ -1,4 +1,3 @@
-import { body } from "@fonts";
 
 export default function Home() {
   return (

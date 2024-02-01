@@ -4,7 +4,7 @@ import Logo from "../../public/logo.png";
 import { body } from "@fonts";
 import { useMediaQuery } from "~/hook/useMediaQuery";
 import { FaInstagram } from "react-icons/fa";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 const Footer = () => {
   const isMd = useMediaQuery("(min-width: 768px)");
