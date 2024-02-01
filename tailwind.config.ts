@@ -48,7 +48,7 @@ const config = {
           5: "#01577c",
         },
         navy: "#021b41",
-        orange: "#ea660c",
+        oren: "#ea660c",
         cream: "#f4e3cb",
 
         border: "hsl(var(--border))",

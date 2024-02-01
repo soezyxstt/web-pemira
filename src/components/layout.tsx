@@ -13,7 +13,7 @@ const Layout = ({ children }: { children?: ReactNode }) => (
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="flex flex-1 flex-col *:flex-1">{children}</main>
+      <main className="flex flex-1 flex-col *:flex-1 *:bg-cream">{children}</main>
     </div>
     <Footer />
   </>
