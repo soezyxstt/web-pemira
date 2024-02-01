@@ -6,7 +6,7 @@ import { body } from '@fonts';
 
 const Layout = ({ children }: { children?: ReactNode }) => (
   <>
-    <div className={`${body} flex min-h-screen flex-col`}>
+    <div className={`${body.className} flex min-h-screen flex-col`}>
       <Head>
         <title>PEMIRA ITB</title>
         <meta name="description" content="Website Pemilu Raya ITB" />

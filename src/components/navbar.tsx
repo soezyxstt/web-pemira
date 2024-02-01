@@ -32,10 +32,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="hidden hover:text-oren md:block">
-          <Link href="/">Profil Calon</Link>
+          <Link href="/profil-calon">Profil Calon</Link>
         </li>
         <li className="hidden hover:text-oren md:block">
-          <Link href="/">Guide Voting</Link>
+          <Link href="/guide-voting">Guide Voting</Link>
         </li>
       </ul>
       <div className={`${header.className} hidden md:block`}>
@@ -82,10 +82,10 @@ const Navbar = () => {
               className={`mb-4 flex flex-col items-center text-cream *:py-3 ${body.className}`}
             >
               <li>
-                <Link href="/">Profil Calon</Link>
+                <Link href="/profil-calon">Profil Calon</Link>
               </li>
               <li>
-                <Link href="/">Guide Voting</Link>
+                <Link href="/guide-voting">Guide Voting</Link>
               </li>
             </ul>
           </DrawerContent>
