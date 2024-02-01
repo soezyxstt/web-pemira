@@ -9,11 +9,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "./ui/drawer";
-import { useToggle } from "~/hook/useToggle";
 import { Separator } from "./ui/separator";
+import { useState } from "react";
 
 const Navbar = () => {
-  const [isExpanded, toggleExpanded, setIsExpanded] = useToggle();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <nav
@@ -42,12 +42,13 @@ const Navbar = () => {
         {"#GerakInklusif"}
       </div>
       <div className="flex h-full items-center md:hidden">
-        <Drawer onClose={() => setIsExpanded(false)}>
+        <Drawer
+          open={isExpanded}
+          onClose={() => setIsExpanded(false)}
+          onOpenChange={setIsExpanded}
+        >
           <DrawerTrigger>
-            <div
-              className="flex flex-col gap-[5.5px] *:transition-all"
-              onClick={() => toggleExpanded()}
-            >
+            <div className="flex flex-col gap-[5.5px] *:transition-all">
               <div
                 className={
                   isExpanded
@@ -81,10 +82,10 @@ const Navbar = () => {
             <ul
               className={`mb-4 flex flex-col items-center text-cream *:py-3 ${body.className}`}
             >
-              <li>
+              <li onClick={() => setIsExpanded(false)}>
                 <Link href="/profil-calon">Profil Calon</Link>
               </li>
-              <li>
+              <li onClick={() => setIsExpanded(false)}>
                 <Link href="/guide-voting">Guide Voting</Link>
               </li>
             </ul>
