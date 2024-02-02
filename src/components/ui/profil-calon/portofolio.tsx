@@ -7,7 +7,7 @@ const Portofolio = ({ linkPorto }: { linkPorto: string }) => {
     <Link href={linkPorto} className="w-full">
       <div className="box-border items-center justify-center rounded-2xl border-2 border-black bg-brown-5 py-2">
         <div
-          className={`${body.className} flex justify-center text-lg text-brown-1 md:text-3xl`}
+          className={`${body.className} flex justify-center text-lg text-brown-1 transition-transform duration-300 ease-in-out hover:scale-110 md:text-3xl`}
         >
           Portofolio
         </div>
