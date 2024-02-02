@@ -11,6 +11,7 @@ const FaInstagram = ({ linkIG }: { linkIG: string }) => {
           height={60}
           width={60}
           alt="Instagram"
+          className="transition-transform duration-300 ease-in-out hover:scale-110"
         ></Image>
       </Link>
     </div>
