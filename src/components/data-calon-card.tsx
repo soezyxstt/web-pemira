@@ -1,5 +1,5 @@
 import React from "react";
-import { bodyBold } from "@fonts";
+import { body } from "@fonts";
 import {
   Card,
   CardContent,
@@ -17,7 +17,7 @@ const DataCalonCard = ({ section }: { section: string }) => {
       className={`box-border w-full flex-grow rounded-2xl border-4 border-black ${bgColor}`}
     >
       <CardHeader className="flex flex-row items-baseline drop-shadow-lg">
-        <CardTitle className={`${bodyBold.className} text-3xl text-brown-1`}>
+        <CardTitle className={`${body.className} text-3xl text-brown-1`}>
           {"Nama Calon"}
         </CardTitle>
         <CardDescription className="pl-3 align-bottom text-brown-3 drop-shadow-lg">
@@ -26,7 +26,7 @@ const DataCalonCard = ({ section }: { section: string }) => {
       </CardHeader>
       <CardContent>
         <CardTitle
-          className={`${bodyBold.className} flex justify-center text-3xl text-brown-1`}
+          className={`${body.className} flex justify-center text-3xl text-brown-1`}
         >
           Visi
         </CardTitle>
@@ -36,7 +36,7 @@ const DataCalonCard = ({ section }: { section: string }) => {
           {"Visi Calon"}
         </CardDescription>
         <CardTitle
-          className={`${bodyBold.className} flex justify-center pt-2 text-3xl text-brown-1`}
+          className={`${body.className} flex justify-center pt-2 text-3xl text-brown-1`}
         >
           Misi
         </CardTitle>
