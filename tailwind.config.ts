@@ -1,4 +1,8 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin");
+const flattenColorPalette =
+  require("tailwindcss/lib/util/flattenColorPalette").default;
+const { parseColor } = require("tailwindcss/lib/util/color");
 
 const config = {
   darkMode: ["class"],
@@ -104,9 +108,88 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textShadow: {
+        xs: "1px 1px 0px var(--tw-shadow-color), -0.625px -0.625px 0px var(--tw-shadow-color), -0.625px 0.625px 0px var(--tw-shadow-color), 0.625px -0.625px 0px var(--tw-shadow-color)",
+        sm: "2px 2px 0px var(--tw-shadow-color), -1.25px -1.25px 0px var(--tw-shadow-color), -1.25px 1.25px 0px var(--tw-shadow-color), 1.25px -1.25px 0px var(--tw-shadow-color)",
+        DEFAULT:
+          "3px 3px 0px var(--tw-shadow-color), -2px -2px 0px var(--tw-shadow-color), -2px 2px 0px var(--tw-shadow-color), 2px -2px 0px var(--tw-shadow-color)",
+        md: "4px 4px 0px var(--tw-shadow-color), -2.5px -2.5px 0px var(--tw-shadow-color), -2.5px 2.5px 0px var(--tw-shadow-color), 2.5px -2.5px 0px var(--tw-shadow-color)",
+        lg: "6px 6px 0px var(--tw-shadow-color), -4px -4px 0px var(--tw-shadow-color), -4px 4px 0px var(--tw-shadow-color), 4px -4px 0px var(--tw-shadow-color)",
+        xl: "8px 8px 0px var(--tw-shadow-color), -5.5px -5.5px 0px var(--tw-shadow-color), -5.5px 5.5px 0px var(--tw-shadow-color), 5.5px -5.5px 0px var(--tw-shadow-color)",
+      },
+      textStrokeWidth: {
+        1: "1px",
+        2: "2px",
+        3: "3px",
+        4: "4px",
+        5: "5px",
+        6: "6px",
+      },
+      textStrokeColor: (theme: Function) => theme("colors"),
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("autoprefixer"),
+    plugin(
+      ({
+        matchUtilities,
+        theme,
+      }: {
+        matchUtilities: Function;
+        theme: Function;
+      }) => {
+        matchUtilities(
+          {
+            "text-shadow": (value: string) => ({
+              textShadow: value,
+            }),
+          },
+          { values: theme("textShadow") },
+        );
+      },
+    ),
+    plugin(
+      ({
+        matchUtilities,
+        theme,
+      }: {
+        matchUtilities: Function;
+        theme: Function;
+      }) => {
+        matchUtilities(
+          {
+            "text-stroke-width": (value: string) => ({
+              WebkitTextStrokeWidth: value,
+              textStrokeWidth: value,
+            }),
+          },
+          { values: theme("textStrokeWidth") },
+        );
+      },
+    ),
+    plugin(
+      ({
+        matchUtilities,
+        theme,
+      }: {
+        matchUtilities: Function;
+        theme: Function;
+      }) => {
+        matchUtilities(
+          {
+            "text-stroke-color": (value: string) => ({
+              WebkitTextStrokeColor: value,
+              textStrokeColor: value,
+            }),
+          },
+          {
+            values: flattenColorPalette(theme("colors")),
+          },
+        );
+      },
+    ),
+  ],
 } satisfies Config;
 
 export default config;
