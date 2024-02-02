@@ -1,12 +1,13 @@
 import { header } from '@fonts';
+import Bg from '~/components/background';
 
 export default function Home() {
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center bg-[url('../../public/texture/dusty.png')] bg-cover bg-center">
-        <div className=" absolute z-0 h-full w-full bg-cream opacity-80"></div>
+      <div className="flex flex-col items-center justify-center dusty-bg">
+        <Bg />
         <div
-          className={`${header.className} text-shadow-[4px_4px_0px_#0a3544,_-2px_-2px_0px_#0a3544,_-2px_2px_0px_#0a3544,_2px_-2px_0px_#0a3544] z-[1] text-4xl text-oren [-webkit-text-stroke:1px_#f4e3cb]`}
+          className={`${header.className} text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-4xl z-[1]`}
         >
           PEMIRA
         </div>
