@@ -4,8 +4,8 @@ import {
   CarouselContent,
   CarouselNext,
   CarouselPrevious,
-} from "./ui/carousel";
-import DataCalonCarouselItem from "./ui/profil-calon/dataCalonCarouselItem";
+} from "../carousel";
+import DataCalonCarouselItem from "./data-calon-carousel-item";
 
 const DataCalonCarousel = ({ section }: { section: string }) => {
   const nextButtonID = section === "K3M" ? "data-next-K3M" : "data-next-MWA-WM";
@@ -13,9 +13,9 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
 
   if (section === "K3M") {
     return (
-      <Carousel>
+      <Carousel id={"data-carousel" + section} opts={{ watchDrag: false }}>
         <CarouselContent>
-          <DataCalonCarouselItem
+          <DataCalonCarouselItem /* Contoh Data Calon */
             section={"K3M"}
             namaCalon={"Yadi Supriyadi"}
             jurusanAngkatan={"TA'21"}
@@ -24,7 +24,7 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
             linkPorto={"https://www.youtube.com/watch?v=CxoXItNERPM"}
             linkIG={"https://www.instagram.com/km.itb/"}
           />
-          <DataCalonCarouselItem
+          <DataCalonCarouselItem /* Contoh Data Calon */
             section={"K3M"}
             namaCalon={"Erik Tohir"}
             jurusanAngkatan={"Mesin'13"}
@@ -37,7 +37,7 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
             linkPorto={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
             linkIG={"https://www.instagram.com/eriktohir/"}
           />
-          <DataCalonCarouselItem
+          <DataCalonCarouselItem /* Contoh Data Calon */
             section={"K3M"}
             namaCalon={"Udin"}
             jurusanAngkatan={"Teknik Oseanografi'20"}
@@ -63,9 +63,9 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
     );
   } else {
     return (
-      <Carousel>
+      <Carousel id={"data-carousel" + section} opts={{ watchDrag: false }}>
         <CarouselContent>
-          <DataCalonCarouselItem
+          <DataCalonCarouselItem /* Contoh Data Calon */
             section={"MWA-WM"}
             namaCalon={"Tatang Nurjaman"}
             jurusanAngkatan={"TA'21"}
@@ -76,7 +76,7 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
             linkPorto={"https://www.youtube.com/watch?v=CxoXItNERPM"}
             linkIG={"https://www.instagram.com/mwawm_itb/"}
           />
-          <DataCalonCarouselItem
+          <DataCalonCarouselItem /* Contoh Data Calon */
             section={"MWA-WM"}
             namaCalon={"Erik Tohir"}
             jurusanAngkatan={"Mesin'13"}

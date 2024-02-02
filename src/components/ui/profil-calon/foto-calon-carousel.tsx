@@ -5,7 +5,7 @@ import {
   CarouselPrevious,
 } from "~/components/ui/carousel";
 
-import FotoCalonCarouselItem from "~/components/ui/profil-calon/fotoCalonCarouselItem";
+import FotoCalonCarouselItem from "~/components/ui/profil-calon/foto-calon-carousel-item";
 
 type FotoCalonCarouselProps = {
   section: string;
@@ -22,6 +22,7 @@ const FotoCalonCarousel = ({
     <Carousel
       className="h-full w-full max-w-xs"
       id={"photo-carousel-" + section}
+      opts={{ watchDrag: false }}
     >
       <CarouselContent>
         <FotoCalonCarouselItem

@@ -1,7 +1,7 @@
 import { header } from "@fonts";
 import Bg from "~/components/background";
-import FotoCalonCarousel from "~/components/foto-calon-carousel";
-import DataCalonCarousel from "~/components/data-calon-carousel";
+import FotoCalonCarousel from "~/components/ui/profil-calon/foto-calon-carousel";
+import DataCalonCarousel from "~/components/ui/profil-calon/data-calon-carousel";
 
 import { useEffect } from "react";
 

@@ -21,7 +21,7 @@ const FotoCalonCarouselItem = ({
     <CarouselItem>
       <div className="">
         <Card
-          className={`flex h-[27rem] min-w-64 items-center justify-center border-4 border-black ${warnaBg}`}
+          className={`flex h-[20rem] min-w-64 items-center justify-center border-4 border-black md:h-[27rem] ${warnaBg}`}
         >
           <CardContent className="m-0 p-0">
             <Image
@@ -34,12 +34,12 @@ const FotoCalonCarouselItem = ({
           </CardContent>
         </Card>
       </div>
-      <div className="relative flex h-[240px] w-full flex-row justify-center">
+      <div className="relative flex h-[180px] w-full flex-row justify-center">
         <Image
           className="absolute bottom-[50%] h-full w-[240px]"
           src={Oval2}
           alt="Oval2"
-          height={240}
+          height={180}
           width={240}
         />
         <span
