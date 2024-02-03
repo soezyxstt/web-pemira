@@ -8,14 +8,10 @@ import Layout from "@/layout";
 import type { ReactElement, ReactNode } from "react";
 import { type NextPage } from "next";
 
-// eslint-disable @typescript-eslint/no-unsafe-assignment
-
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
@@ -42,5 +38,3 @@ const Pemira = ({
 };
 
 export default api.withTRPC(Pemira);
-
-// eslint-disable @typescript-eslint/no-unsafe-assignment
