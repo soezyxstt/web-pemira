@@ -4,7 +4,7 @@ import TealStuff from "../../public/ribbon/3.png";
 import Head from "next/head";
 import Image from "next/image";
 import { body, header } from "@fonts";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Separator } from "~/components/ui/separator";
 import { useState } from "react";
 import {
@@ -12,9 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogContent,
-  DialogClose,
 } from "~/components/ui/dialog";
-import { set } from "zod";
 
 const Admin: NextPageWithLayout = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,5 +1,4 @@
 import { header } from "@fonts";
-import { signIn } from "next-auth/react";
 import Bg from "~/components/background";
 
 export default function Home() {

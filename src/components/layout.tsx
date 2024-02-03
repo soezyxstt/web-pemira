@@ -3,7 +3,6 @@ import Head from "next/head";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import { body } from "@fonts";
-import { motion } from "framer-motion";
 import FadeIn from "./fade-in";
 
 const Layout = ({ children }: { children?: ReactNode }) => (
