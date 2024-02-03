@@ -119,11 +119,11 @@ const Admin: NextPageWithLayout = () => {
             </Dialog>
           </form>
         </div>
-        <div className="absolute left-48 top-28 h-40 w-20 rotate-45 bg-[url('../../public/bintang/13.png')] bg-contain bg-center bg-no-repeat" />
-        <div className="absolute bottom-72 left-56 h-24 w-24 rotate-[110deg] bg-[url('../../public/bintang/14.png')] bg-contain bg-center bg-no-repeat" />
+        <div className="absolute left-48 top-28 h-40 w-20 rotate-45 bg-[url('../../public/bintang/13.PNG')] bg-contain bg-center bg-no-repeat" />
+        <div className="absolute bottom-72 left-56 h-24 w-24 rotate-[110deg] bg-[url('../../public/bintang/14.PNG')] bg-contain bg-center bg-no-repeat" />
         <div className="absolute right-32 h-40 w-28 rotate-45 bg-[url('../../public/bintang/4.png')] bg-contain bg-center bg-no-repeat" />
-        <div className="absolute right-[34vw] top-[30vh] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_1.png')] bg-contain bg-center bg-no-repeat" />
-        <div className="absolute bottom-[20vh] left-[34vw] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_2.png')] bg-contain bg-center bg-no-repeat" />
+        <div className="absolute right-[34vw] top-[30vh] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_1.PNG')] bg-contain bg-center bg-no-repeat" />
+        <div className="absolute bottom-[20vh] left-[34vw] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_2.PNG')] bg-contain bg-center bg-no-repeat" />
         <div className="absolute right-24 top-24 h-40 w-16 bg-[url('../../public/bintang/15.PNG')] bg-contain bg-center bg-no-repeat" />
         <div className="absolute bottom-[-6rem] left-[-4rem] h-80 w-80 bg-[url('../../public/jengga/stack.png')] bg-contain bg-center bg-no-repeat" />
         <div className="absolute -bottom-6 -right-8 h-60 w-60 bg-[url('../../public/jengga/scatter.png')] bg-contain bg-center bg-no-repeat" />

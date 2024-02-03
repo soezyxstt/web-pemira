@@ -7,9 +7,6 @@ await import("./src/env.js");
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  images: {
-    path: "/"
-  },
 
   /**
    * If you are using `appDir` then you must comment the below `i18n` config out.
