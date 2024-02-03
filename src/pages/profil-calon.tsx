@@ -1,82 +1,65 @@
 import { header } from "@fonts";
-import Image from "next/image";
-import Oval2 from "../../public/properti/oval_2.png";
 import Bg from "~/components/background";
-import FaInstagram from "~/components/ui/profil-calon/faInstagram";
-import Portofolio from "~/components/ui/profil-calon/portofolio";
-import DataCalonCard from "~/components/data-calon-card";
+import FotoCalonCarousel from "~/components/foto-calon-carousel";
+import DataCalonCarousel from "~/components/data-calon-carousel";
 
-import { Card, CardContent } from "~/components/ui/card";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "~/components/ui/carousel";
+import { useEffect } from "react";
 
 const ProfilCalon = () => {
+  const useCarouselNavigation = (
+    /* Carousel Button Effect */
+    photoButtonId: string,
+    dataButtonId: string,
+  ) => {
+    useEffect(() => {
+      const nextPhotoButton = document.getElementById(photoButtonId);
+      const nextDataButton = document.getElementById(dataButtonId);
+
+      const handleNext = () => {
+        nextDataButton?.click();
+      };
+
+      nextPhotoButton?.addEventListener("click", handleNext);
+
+      return () => {
+        nextPhotoButton?.removeEventListener("click", handleNext);
+      };
+    });
+  };
+
+  useCarouselNavigation("photo-next-K3M", "data-next-K3M");
+  useCarouselNavigation("photo-next-MWA-WM", "data-next-MWA-WM");
+  useCarouselNavigation("photo-prev-K3M", "data-prev-K3M");
+  useCarouselNavigation("photo-prev-MWA-WM", "data-prev-MWA-WM");
+
   return (
     <div className="justify-content dusty-bg w-full items-center pb-16">
       <Bg />
-      <div>
+      <div className="in-h-screen">
         <div /* Text K3M */
           className={`${header.className} pt-20 text-center text-6xl font-normal not-italic text-navy drop-shadow-lg`}
         >
           {"K3M"}
         </div>
-        <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16 ">
+        <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16">
           <div /* Photo Carousel */
-            className="border-box flex-shrink-0 flex-grow-0"
+            className="border-box mx-auto h-[27rem] flex-shrink-0 flex-grow-0"
           >
-            <Carousel className="relative w-full max-w-xs">
-              <CarouselContent>
-                <CarouselItem>
-                  <div>
-                    <Card className="flex h-96 min-w-64 items-center justify-center border-4 border-black bg-blue-5">
-                      <CardContent className="m-0 p-0">
-                        <span className="text-4xl font-semibold">
-                          {"Calon 1"}
-                        </span>
-                      </CardContent>
-                    </Card>
-                    <Image
-                      className="mr-2"
-                      src={Oval2}
-                      height={48}
-                      alt="Oval"
-                    />
-                  </div>
-                </CarouselItem>
-                <CarouselItem>
-                  <div>
-                    <Card className="flex h-96 min-w-64 items-center justify-center border-4 border-black bg-blue-5">
-                      <CardContent className="m-0 p-0">
-                        <span className="text-4xl font-semibold">
-                          {"Calon 2"}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-6 h-14 w-14" />
-              <CarouselNext className="absolute -right-6 h-14 w-14" />
-            </Carousel>
+            <FotoCalonCarousel
+              section={"K3M"}
+              fotoCalon1={"/logo.png"}
+              fotoCalon2={"/logo.png"}
+            />
           </div>
-          <div /* data calon */ className="z-[1] w-full pt-20 md:pt-0">
-            <DataCalonCard section="K3M" />
-            <div className="flex flex-row items-center pt-2">
-              <Portofolio
-                linkPorto={"https://id.wikipedia.org/wiki/Portofolio"}
-              />
-              <FaInstagram linkIG={"https://instagram.com"} />
-            </div>
+          <div /* data calon */
+            className="z-[1] w-full flex-grow pt-20 md:pt-0"
+            id="data-carousel-K3M"
+          >
+            <DataCalonCarousel section={"K3M"} />
           </div>
         </div>
       </div>
-      <div>
+      <div className="min-h-screen">
         <div /* Text MWA - WM */
           className={`${header.className} pt-20 text-center text-6xl font-normal not-italic text-red-5 drop-shadow-md`}
         >
@@ -84,45 +67,18 @@ const ProfilCalon = () => {
         </div>
         <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16">
           <div /* Photo Carousel */
-            className="border-box flex-shrink-0 flex-grow-0"
+            className="border-box mx-auto h-[27rem] flex-shrink-0 flex-grow-0"
           >
-            <Carousel className="relative w-full max-w-xs">
-              <CarouselContent>
-                <CarouselItem>
-                  <div>
-                    <Card className="flex h-96 min-w-64 flex-col items-center justify-center border-4 border-black bg-red-5">
-                      <CardContent className="m-0 p-0">
-                        <span className="text-4xl font-semibold">
-                          {"Calon 1"}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-                <CarouselItem>
-                  <div>
-                    <Card className="flex h-96 min-w-64 flex-col items-center justify-center border-4 border-black bg-red-5">
-                      <CardContent className="m-0 p-0">
-                        <span className="text-4xl font-semibold">
-                          {"Calon 2"}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-6 h-14 w-14" />
-              <CarouselNext className="absolute -right-6 h-14 w-14" />
-            </Carousel>
+            <FotoCalonCarousel
+              section={"MWA-WM"}
+              fotoCalon1={"/logo.png"}
+              fotoCalon2={"/logo.png"}
+            />
           </div>
-          <div /* data calon */ className="z-[1] w-full pt-20 md:pt-0">
-            <DataCalonCard section="MWA-WM" />
-            <div className="flex flex-row items-center pt-2">
-              <Portofolio
-                linkPorto={"https://id.wikipedia.org/wiki/Portofolio"}
-              />
-              <FaInstagram linkIG={"https://instagram.com"} />
-            </div>
+          <div
+            /* data calon */ className="z-[1] w-full flex-grow pt-20 md:pt-0"
+          >
+            <DataCalonCarousel section={"MWA-WM"} />
           </div>
         </div>
       </div>

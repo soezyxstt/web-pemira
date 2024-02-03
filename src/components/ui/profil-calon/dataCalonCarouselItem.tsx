@@ -36,7 +36,7 @@ const DataCalonCarouselItem = ({
   return (
     <CarouselItem /* Data Calon */>
       <Card
-        className={`box-border w-full flex-grow rounded-2xl border-4 border-black ${bgColor}`}
+        className={`box-border flex-grow rounded-2xl border-4 border-black ${bgColor}`}
       >
         <CardHeader className="flex flex-col items-baseline drop-shadow-lg md:flex-row">
           <CardTitle
@@ -72,7 +72,7 @@ const DataCalonCarouselItem = ({
           </div>
         </CardContent>
       </Card>
-      <div className="flex flex-row items-center pt-2">
+      <div className="flex flex-grow flex-row items-center pt-1">
         <Portofolio linkPorto={linkPorto} />
         <FaInstagram linkIG={linkIG} />
       </div>

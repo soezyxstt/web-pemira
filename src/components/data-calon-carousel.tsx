@@ -7,7 +7,7 @@ import {
 } from "./ui/carousel";
 import DataCalonCarouselItem from "./ui/profil-calon/dataCalonCarouselItem";
 
-const DataCalonCard = ({ section }: { section: string }) => {
+const DataCalonCarousel = ({ section }: { section: string }) => {
   const nextButtonID = section === "K3M" ? "data-next-K3M" : "data-next-MWA-WM";
   const prevButtonID = section === "K3M" ? "data-prev-K3M" : "data-prev-MWA-WM";
 
@@ -21,8 +21,8 @@ const DataCalonCard = ({ section }: { section: string }) => {
             jurusanAngkatan={"TA'21"}
             visi={"cerah"}
             misi={["hidup", "selamet", "adibing selamet ketemu jaka sembung"]}
-            linkPorto={""}
-            linkIG={""}
+            linkPorto={"https://www.youtube.com/watch?v=CxoXItNERPM"}
+            linkIG={"https://www.instagram.com/km.itb/"}
           />
           <DataCalonCarouselItem
             section={"K3M"}
@@ -36,6 +36,19 @@ const DataCalonCard = ({ section }: { section: string }) => {
             ]}
             linkPorto={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
             linkIG={"https://www.instagram.com/eriktohir/"}
+          />
+          <DataCalonCarouselItem
+            section={"K3M"}
+            namaCalon={"Udin"}
+            jurusanAngkatan={"Teknik Oseanografi'20"}
+            visi={"Orang Miskin Harus Kaya"}
+            misi={[
+              "memberantas isis",
+              "menolak al-qaeda",
+              "menghancurkan taliban",
+            ]}
+            linkPorto={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
+            linkIG={"https://www.instagram.com/km.itb/"}
           />
         </CarouselContent>
         <CarouselPrevious
@@ -56,10 +69,12 @@ const DataCalonCard = ({ section }: { section: string }) => {
             section={"MWA-WM"}
             namaCalon={"Tatang Nurjaman"}
             jurusanAngkatan={"TA'21"}
-            visi={"cerah"}
+            visi={
+              "rcu dictum. Sit amet consectetur adipiscing elit. Et malesuada fames ac turpis ultricies tristique nulla aliquet enim. Diam phasellus vestibulum lorem sed. Dolor morbi non arcu risus quis varius quam quisque. Enim eu turpis egestas pretium aenean pharetra magna ac."
+            }
             misi={["hidup", "selamet", "adibing selamet ketemu jaka sembung"]}
-            linkPorto={""}
-            linkIG={""}
+            linkPorto={"https://www.youtube.com/watch?v=CxoXItNERPM"}
+            linkIG={"https://www.instagram.com/mwawm_itb/"}
           />
           <DataCalonCarouselItem
             section={"MWA-WM"}
@@ -67,7 +82,7 @@ const DataCalonCard = ({ section }: { section: string }) => {
             jurusanAngkatan={"Mesin'13"}
             visi={"PSSI nomer 1"}
             misi={[
-              "memberantas isis",
+              "Phasellus metus odio, eleifend et elit non, suscipit rhoncus mauris. Duis volutpat magna et pulvinar elementum. Duis id est vel nisl mollis sagittis volutpat a ex. Duis fringilla posuere sapien, vel hendrerit leo auctor et. Donec at tempor sem, at vulputate nibh.",
               "menolak al-qaeda",
               "menghancurkan taliban",
             ]}
@@ -88,4 +103,4 @@ const DataCalonCard = ({ section }: { section: string }) => {
   }
 };
 
-export default DataCalonCard;
+export default DataCalonCarousel;
