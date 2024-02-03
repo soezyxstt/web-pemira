@@ -1,5 +1,5 @@
 import { SessionProvider } from "next-auth/react";
-import { AppProps, type AppType } from "next/app";
+import { type AppProps } from "next/app";
 
 import { api } from "~/utils/api";
 
@@ -7,6 +7,8 @@ import "~/styles/globals.css";
 import Layout from "@/layout";
 import type { ReactElement, ReactNode } from "react";
 import { type NextPage } from "next";
+
+// eslint-disable @typescript-eslint/no-unsafe-assignment
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
