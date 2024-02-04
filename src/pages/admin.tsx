@@ -60,7 +60,7 @@ const Admin: NextPageWithLayout = () => {
               <input
                 type="number"
                 placeholder="NIM"
-                className="placeholder-slate-300 justify-center rounded-xl border-2 border-teal-3/50 bg-brown-4/75 px-6 py-1 text-center text-2xl text-brown-2 outline-none transition-all text-stroke-width-1 text-stroke-color-navy placeholder:opacity-75 hover:bg-brown-4 focus:bg-brown-4"
+                className="justify-center rounded-xl border-2 border-teal-3/50 bg-brown-4/75 px-6 py-1 text-center text-2xl text-brown-2 placeholder-slate-300 outline-none transition-all text-stroke-width-1 text-stroke-color-navy placeholder:opacity-75 hover:bg-brown-4 focus:bg-brown-4"
                 {...register("nim", {
                   required: "Masukin dulu NIM yaaa..",
                   maxLength: {
@@ -73,18 +73,18 @@ const Admin: NextPageWithLayout = () => {
                   },
                 })}
               />
-              {errors.nim && <p>{errors.nim.message}</p>}
+              {errors.nim && <p className={`${body.className} text-sm mt-1`}>{errors.nim.message}</p>}
             </div>
             <button
               disabled={isSubmitting || !isValid || !isDirty}
               type="submit"
               className={
                 isSubmitting || !isValid || !isDirty
-                  ? `${body.className} z-10 w-full cursor-not-allowed rounded-full bg-teal-3 py-2 text-brown-2 outline outline-1 outline-navy transition-colors `
-                  : `${body.className} z-10 w-full rounded-full bg-teal-1 py-2 text-brown-2 outline outline-1 outline-navy transition-colors hover:bg-teal-2`
+                  ? `${body.className} z-10 w-full cursor-not-allowed rounded-full bg-teal-3 py-2 text-red-600 line-through outline outline-1 outline-navy transition-colors text-stroke-width-[.4px] text-stroke-color-navy`
+                  : `${body.className} z-10 w-full rounded-full bg-teal-3/95 py-2 text-brown-2 outline outline-1 outline-navy transition-colors hover:bg-teal-3`
               }
             >
-              Submit
+              SUBMIT
             </button>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogContent
@@ -99,21 +99,21 @@ const Admin: NextPageWithLayout = () => {
                     </h1>
                   </DialogTitle>
                   <div
-                    className={`text-2xl text-red-5 text-stroke-width-[0.3px] text-stroke-color-brown-3`}
+                    className={`text-2xl text-red-700 text-stroke-width-[0.3px] text-stroke-color-navy`}
                   >
                     03:42
                   </div>
-                  <Separator className="h-[1px] bg-brown-3/85" />
+                  <Separator className=" bg-brown-4" />
                 </DialogHeader>
                 <div className="grid grid-cols-10 px-4 text-2xl text-brown-3 text-stroke-width-1 text-stroke-color-teal-5">
-                  <div className=" col-span-2">NIM</div>
+                  <div className="col-span-3 md:col-span-2">NIM</div>
                   <div className="">:</div>
                   <div className=""></div>
-                  <div className=" col-span-6">13122080</div>
-                  <div className={`col-span-2`}>Token</div>
+                  <div className="col-span-5 md:col-span-6">13122080</div>
+                  <div className={`col-span-3 md:col-span-2`}>Token</div>
                   <div className="">:</div>
                   <div className=""></div>
-                  <div className={`col-span-6`}>AS67DD</div>
+                  <div className={`col-span-5 md:col-span-6`}>AS67DD</div>
                 </div>
               </DialogContent>
             </Dialog>
