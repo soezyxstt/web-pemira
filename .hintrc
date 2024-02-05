@@ -10,6 +10,14 @@
           "-moz-appearance"
         ]
       }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[loading]"
+        ]
+      }
     ]
   }
 }
