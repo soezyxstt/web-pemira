@@ -28,7 +28,9 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
             section={"K3M"}
             namaCalon={"Erik Tohir"}
             jurusanAngkatan={"Mesin'13"}
-            visi={"PSSI nomer 1"}
+            visi={
+              "Curabitur vitae libero varius, rutrum nisi ut, varius mi. Aliquam sed commodo nisl, sodales convallis orci. Integer vitae efficitur justo. Morbi vitae diam a tellus laoreet condimentum vitae nec risus. Curabitur ut metus mi. Sed egestas turpis sit amet sagittis feugiat. "
+            }
             misi={[
               "memberantas isis",
               "menolak al-qaeda",

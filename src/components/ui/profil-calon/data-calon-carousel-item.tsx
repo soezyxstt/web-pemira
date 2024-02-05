@@ -40,7 +40,7 @@ const DataCalonCarouselItem = ({
       >
         <CardHeader className="flex flex-col items-baseline drop-shadow-lg md:flex-row">
           <CardTitle
-            className={`${body.className} text-base text-brown-1 md:text-3xl`}
+            className={`${body.className} w-fit text-base text-brown-1 md:text-3xl`}
           >
             {namaCalon}
           </CardTitle>

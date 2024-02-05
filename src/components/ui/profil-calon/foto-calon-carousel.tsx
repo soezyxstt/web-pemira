@@ -9,14 +9,12 @@ import FotoCalonCarouselItem from "~/components/ui/profil-calon/foto-calon-carou
 
 type FotoCalonCarouselProps = {
   section: string;
-  fotoCalon1: string;
-  fotoCalon2: string;
+  fotofotoCalon: Array<string>;
 };
 
 const FotoCalonCarousel = ({
   section,
-  fotoCalon1,
-  fotoCalon2,
+  fotofotoCalon,
 }: FotoCalonCarouselProps) => {
   return (
     <Carousel
@@ -26,13 +24,7 @@ const FotoCalonCarousel = ({
     >
       <CarouselContent>
         <FotoCalonCarouselItem
-          fotoCalon={fotoCalon1}
-          calonKe={"01"}
-          section={section}
-        />
-        <FotoCalonCarouselItem
-          fotoCalon={fotoCalon2}
-          calonKe={"02"}
+          fotofotoCalon={fotofotoCalon}
           section={section}
         />
       </CarouselContent>

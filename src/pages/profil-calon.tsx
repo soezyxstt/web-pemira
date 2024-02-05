@@ -35,7 +35,7 @@ const ProfilCalon = () => {
   return (
     <div className="justify-content dusty-bg w-full items-center pb-16">
       <Bg />
-      <div className="in-h-screen">
+      <div className="">
         <div /* Text K3M */
           className={`${header.className} pt-20 text-center text-6xl font-normal not-italic text-navy drop-shadow-lg`}
         >
@@ -43,23 +43,21 @@ const ProfilCalon = () => {
         </div>
         <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16">
           <div /* Photo Carousel */
-            className="border-box mx-auto h-[27rem] flex-shrink-0 flex-grow-0"
+            className="border-box mx-auto mb-5 flex h-[20rem] w-full flex-shrink-0 flex-grow-0 justify-center md:h-[27rem] md:w-auto"
           >
             <FotoCalonCarousel
               section={"K3M"}
-              fotoCalon1={"/logo.png"}
-              fotoCalon2={"/logo.png"}
+              fotofotoCalon={["/logo.png", "/logo.png"]}
             />
           </div>
-          <div /* data calon */
-            className="z-[1] w-full flex-grow pt-20 md:pt-0"
-            id="data-carousel-K3M"
+          <div
+            /* data calon */ className="w-full min-w-0 flex-grow pt-20 md:pt-0"
           >
             <DataCalonCarousel section={"K3M"} />
           </div>
         </div>
       </div>
-      <div className="min-h-screen">
+      <div>
         <div /* Text MWA - WM */
           className={`${header.className} pt-20 text-center text-6xl font-normal not-italic text-red-5 drop-shadow-md`}
         >
@@ -67,16 +65,15 @@ const ProfilCalon = () => {
         </div>
         <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16">
           <div /* Photo Carousel */
-            className="border-box mx-auto h-[27rem] flex-shrink-0 flex-grow-0"
+            className="border-box mx-auto mb-5 flex h-[20rem] w-full flex-shrink-0 flex-grow-0 justify-center md:h-[27rem] md:w-auto"
           >
             <FotoCalonCarousel
               section={"MWA-WM"}
-              fotoCalon1={"/logo.png"}
-              fotoCalon2={"/logo.png"}
+              fotofotoCalon={["/logo.png", "/logo.png"]}
             />
           </div>
           <div
-            /* data calon */ className="z-[1] w-full flex-grow pt-20 md:pt-0"
+            /* data calon */ className="w-full min-w-0 flex-grow pt-20 md:pt-0"
           >
             <DataCalonCarousel section={"MWA-WM"} />
           </div>
