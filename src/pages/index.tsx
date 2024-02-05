@@ -9,7 +9,7 @@ export default function Home() {
         <div
           className={`${header.className} z-[1] text-4xl text-oren shadow-teal-4 text-shadow text-stroke-width-1 text-stroke-color-cream`}
         >
-          PEMIRA
+          PEMIRA - Coming Soon
         </div>
       </div>
     </>
