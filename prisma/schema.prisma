@@ -10,7 +10,7 @@ datasource db {
 
 model User {
     id           String   @id @default(uuid())
-    NIM          String      @unique
+    NIM          String   @unique
     name         String
     passwordHash String
     createdAt    DateTime @default(now())
@@ -19,7 +19,7 @@ model User {
 
 model CalonK3M {
     id        String   @id @default(uuid())
-    NIM       String      @unique
+    NIM       String   @unique
     name      String
     jurusan   String
     angkatan  Int
@@ -32,7 +32,7 @@ model CalonK3M {
 
 model CalonMWAWM {
     id        String   @id @default(uuid())
-    NIM       String      @unique
+    NIM       String   @unique
     name      String
     jurusan   String
     angkatan  Int
@@ -45,7 +45,7 @@ model CalonMWAWM {
 
 model Vote {
     id           String      @id @default(uuid())
-    NIM          String         @unique
+    NIM          String      @unique
     createdAt    DateTime    @default(now())
     updatedAt    DateTime    @updatedAt
     calonK3M     CalonK3M?   @relation(fields: [calonK3MId], references: [id])
