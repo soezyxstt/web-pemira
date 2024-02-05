@@ -3,9 +3,15 @@ import { header } from '~/styles/fonts';
 
 const ProfilCalon = () => {
   return (
-    <div className='flex justify-center items-center dusty-bg'>
+    <div className="dusty-bg flex items-center justify-center">
       <Bg />
-      <h1 className={`${header.className} text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-4xl z-[1]`}>Profil Calon - Coming Soon</h1>
+      <div
+        className={`${header.className} z-[1] flex flex-col gap-3 text-center text-4xl text-oren shadow-teal-4 text-shadow text-stroke-width-1 text-stroke-color-cream md:flex-row md:gap-2`}
+      >
+        <h1>Profil Calon</h1>
+        <h1 className="hidden md:block">-</h1>
+        <h1>Coming Soon</h1>
+      </div>
     </div>
   );
 }
