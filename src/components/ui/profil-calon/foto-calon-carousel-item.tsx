@@ -34,16 +34,16 @@ const FotoCalonCarouselItem = ({
               </CardContent>
             </Card>
           </div>
-          <div className="relative flex h-[180px] w-full flex-row justify-center">
+          <div className="relative flex h-[140px] w-full flex-row justify-center md:h-[180px]">
             <Image
-              className="absolute bottom-[50%] h-full w-[240px]"
+              className="absolute bottom-[50%] h-full w-[200px] md:w-[240px]"
               src={Oval2}
               alt="Oval2"
               height={180}
               width={240}
             />
             <span
-              className={`${header.className} absolute -top-[13%] z-10 text-5xl text-brown-1`}
+              className={`${header.className} absolute -top-[13%] z-10 text-4xl text-brown-1 md:text-5xl`}
             >
               {"0" + (index + 1).toString()}
             </span>

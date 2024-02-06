@@ -47,11 +47,11 @@ const ProfilCalon = () => {
           >
             <FotoCalonCarousel
               section={"K3M"}
-              fotofotoCalon={["/logo.png", "/logo.png"]}
+              fotofotoCalon={["/logo.png", "/logo.png", "/logo.png"]}
             />
           </div>
-          <div
-            /* data calon */ className="w-full min-w-0 flex-grow pt-20 md:pt-0"
+          <div /* data calon */
+            className="w-full min-w-0 flex-grow pt-20 md:pt-0"
           >
             <DataCalonCarousel section={"K3M"} />
           </div>
@@ -72,8 +72,8 @@ const ProfilCalon = () => {
               fotofotoCalon={["/logo.png", "/logo.png"]}
             />
           </div>
-          <div
-            /* data calon */ className="w-full min-w-0 flex-grow pt-20 md:pt-0"
+          <div /* data calon */
+            className="w-full min-w-0 flex-grow pt-20 md:pt-0"
           >
             <DataCalonCarousel section={"MWA-WM"} />
           </div>
