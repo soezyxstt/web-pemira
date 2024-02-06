@@ -1,17 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useState } from 'react'; 
 import { ChevronRight,ChevronLeft } from "lucide-react"
 import { Button } from "~/components/ui/button"
 import { header,body } from '~/styles/fonts';
-import { srcLokasi } from '~/locationData.json'
+import Lokasi from '~/locationData.json'
 
 const LokasiVoting = () => {
     const [currentIdx,setCurrentIdx] = useState(0);
-  
-    const keyLokasi: string[] = [
-      "GANESHA",
-      "JATINANGOR",
-      "CIREBON"
-    ]
   
     const cycleForward = () => {
       setCurrentIdx(a => (a + 1) % 3);
@@ -21,7 +16,7 @@ const LokasiVoting = () => {
       if (currentIdx > 0){
         setCurrentIdx(a => Math.abs((a-1) % 3));
       } else {
-        setCurrentIdx(srcLokasi.length - 1);
+        setCurrentIdx(Lokasi.src.length - 1);
       }
   
     }
@@ -35,7 +30,7 @@ const LokasiVoting = () => {
         <div className='bg-red-1 lg:pt-5 lg:px-5 w-[60vw] rounded-[2rem] overflow-clip'>
           <div>
             <iframe
-              src={srcLokasi[currentIdx]}
+              src={Lokasi.src[currentIdx]}
               height="400px"
               loading="lazy"
               className='rounded-[1rem] w-[100%] max-[500px]:w-[101%]'
@@ -48,7 +43,7 @@ const LokasiVoting = () => {
                   <ChevronLeft className="h-4 w-4 text-red-3" strokeWidth={3}/>
                 </Button>
                 <div className={`${body.className} text-white antialiased text-center lg:w-[100px] lg:text-base md:text-[13px] min-[320px]:text-[11px]`}>
-                  {keyLokasi[currentIdx]}
+                  {Lokasi.nama[currentIdx]}
                 </div>
                 <Button onClick={cycleForward} size="icon" variant="secondary" className='rounded-full max-[450px]:w-[25px] max-[450px]:h-[25px]'>
                   <ChevronRight className="h-4 w-4 text-red-3" strokeWidth={3}/>
