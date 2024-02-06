@@ -9,7 +9,7 @@ const Voting = () => {
       >
         Guide Voting
       </h1>
-      <div className="isolation: isolate mt-5 flex w-[55vw] flex-col rounded-xl bg-teal-1 p-4 md:flex-row ">
+      <div className="isolation: isolate mt-5 flex w-[53vw] flex-col rounded-xl bg-teal-1 p-4 md:flex-row ">
         <div className="flex-container">
           <ol className="text-black-500 list-inside">
             <li className="m-2 mb-3 flex min-h-[30px] min-w-[500px] flex-grow flex-col items-center bg-white p-1.5 sm:min-w-[250px] md:min-w-[500px]"></li>
