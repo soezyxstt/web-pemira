@@ -5,7 +5,7 @@ import Voting from "~/components/voting";
 
 const GuideVoting = () => {
   return (
-    <div className="dusty-bg flex flex-col items-center justify-center">
+    <div className="flex items-center justify-center flex-col dusty-bg gap-[5em]">
       <Bg />
       <Voting />
     </div>
