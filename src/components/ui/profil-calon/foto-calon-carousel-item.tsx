@@ -14,6 +14,7 @@ const FotoCalonCarouselItem = ({
   section,
 }: FotoCalonCarouselItemProps) => {
   const warnaBg = section === "K3M" ? "bg-blue-5" : "bg-red-5";
+  const warnaBgFoto = section === "K3M" ? "bg-teal-1" : "bg-red-3";
 
   return (
     <>
@@ -24,26 +25,28 @@ const FotoCalonCarouselItem = ({
               className={`border-box flex h-[20rem] min-w-60 items-center justify-center border-4 border-black md:h-[27rem] ${warnaBg}`}
             >
               <CardContent className="m-0 p-0">
-                <Image
-                  src={fotoCalon}
-                  className="h-full w-full"
-                  alt="erick thohir"
-                  height={100}
-                  width={100}
-                />
+                <div className={`${warnaBgFoto} overflow-hidden rounded-xl`}>
+                  <Image
+                    src={fotoCalon}
+                    className="h-full w-full"
+                    alt={`Foto calon ke-${index + 1}`}
+                    height={150}
+                    width={150}
+                  />
+                </div>
               </CardContent>
             </Card>
           </div>
-          <div className="relative flex h-[140px] w-full flex-row justify-center md:h-[180px]">
+          <div className="relative flex h-[90px] w-full flex-row justify-center">
             <Image
-              className="absolute bottom-[50%] h-full w-[200px] md:w-[240px]"
+              className="absolute bottom-[50%] h-full w-[140px]"
               src={Oval2}
               alt="Oval2"
-              height={180}
-              width={240}
+              height={90}
+              width={140}
             />
             <span
-              className={`${header.className} absolute -top-[13%] z-10 text-4xl text-brown-1 md:text-5xl`}
+              className={`${header.className} absolute -top-[20%] text-4xl text-brown-1 md:text-5xl`}
             >
               {"0" + (index + 1).toString()}
             </span>
