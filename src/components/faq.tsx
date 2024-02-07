@@ -14,7 +14,7 @@ const FaQ = () => {
             <h1 className={`${header.className} text-oren text-4xl mb-10 text-center`}>
                 FaQ
             </h1>
-            <Accordion type="single" collapsible className="w-full sm:w-[60vw] flex flex-col gap-">
+            <Accordion type="single" collapsible className="w-full sm:w-[60vw] flex flex-col gap-8">
                 {Pertanyaan.map((name,key)=>(
                     <AccordionItem value={`${key}`} key={key} className="bg-yellow-500 rounded-[2rem]">
                         <AccordionTrigger className={`bg-oren text-white text-lg tracking-wider px-6 pb-3 rounded-[2rem]`}>
