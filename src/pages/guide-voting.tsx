@@ -1,5 +1,4 @@
 import Bg from "~/components/background";
-import { header } from "~/styles/fonts";
 import React from "react";
 import Voting from "~/components/voting";
 
