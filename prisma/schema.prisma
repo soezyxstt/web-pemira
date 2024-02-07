@@ -1,32 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
     provider  = "postgresql"
-    url       = env("DATABASE_URL")
+    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model User {
-    id           String   @id @default(uuid())
-    NIM          String   @unique
-    name         String
-    passwordHash String
-    createdAt    DateTime @default(now())
-    updatedAt    DateTime @updatedAt
+model Admin {
+  username String @unique
+  passwordHash String
 }
 
 model CalonK3M {
     id        String   @id @default(uuid())
-    NIM       String   @unique
+    NIM       String      @unique
     name      String
     jurusan   String
     angkatan  Int
     visi      String[]
-    misi      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    votes     Vote[]
+    misi      String[]
+    pilihan_1 Int @default(0)
+    pilihan_2 Int @default(0)
+    pilihan_3 Int @default(0)
 }
 
 model CalonMWAWM {
@@ -36,19 +36,30 @@ model CalonMWAWM {
     jurusan   String
     angkatan  Int
     visi      String[]
-    misi      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    votes     Vote[]
+    misi      String[]
+    pil_1_count Int @default(0)
+    pil_2_count Int @default(0)
+    pil_3_count Int @default(0)
 }
 
-model Vote {
-    id           String      @id @default(uuid())
-    NIM          String      @unique
-    createdAt    DateTime    @default(now())
-    updatedAt    DateTime    @updatedAt
-    calonK3M     CalonK3M?   @relation(fields: [calonK3MId], references: [id])
-    calonK3MId   String?
-    calonMWAWM   CalonMWAWM? @relation(fields: [calonMWAWMId], references: [id])
-    calonMWAWMId String?
+model Mahasiswa {
+    id           String   @id @default(uuid())
+    NIM          String   @unique
+    name         String
+    state        Boolean  @default(false)
+    token        String   @unique
+}
+
+model VoteMWAWM {
+  id String @unique @default(uuid())
+  pil_1 Int
+  pil_2 Int
+  pil_3 Int
+}
+
+model VoteK3M {
+  id String @unique @default(uuid())
+  pil_1 Int
+  pil_2 Int
+  pil_3 Int
 }
