@@ -9,7 +9,7 @@ const FaInstagram = ({ linkIG }: { linkIG: string }) => {
     >
       <Link href={linkIG}>
         <Image
-          src="/instagram_logo.png"
+          src="/instagram_logo.PNG"
           height={60}
           width={60}
           alt="Instagram"
