@@ -11,56 +11,30 @@ datasource db {
 }
 
 model Admin {
-  username String @unique
+  id           String @id @defaukt(uuid())
+  username     String @unique
   passwordHash String
-}
-
-model CalonK3M {
-  id        String   @id @default(uuid())
-  NIM       String      @unique
-  name      String
-  jurusan   String
-  angkatan  Int
-  visi      String[]
-  misi      String[]
-  pil_1_count Int @default(0)
-  pil_2_count Int @default(0)
-  pil_3_count Int @default(0)
-}
-
-model CalonMWAWM {
-  id        String   @id @default(uuid())
-  NIM       String   @unique
-  name      String
-  jurusan   String
-  angkatan  Int
-  visi      String[]
-  misi      String[]
-  pil_1_count Int @default(0)
-  pil_2_count Int @default(0)
-  pil_3_count Int @default(0)
 }
 
 model Mahasiswa {
   id           String   @id @default(uuid())
   NIM          String   @unique
-  name         String
   state        Boolean  @default(false)
   token        String   @unique
 }
 
 model VoteMWAWM {
   id String @unique @default(uuid())
-  pil_1 Int
-  pil_2 Int
-  pil_3 Int
+  pil_1 String?
+  pil_2 String?
+  pil_3 String?
 }
 
 model VoteK3M {
   id String @unique @default(uuid())
-  pil_1 Int
-  pil_2 Int
-  pil_3 Int
+  pil_1 String?
+  pil_2 String?
+  pil_3 String?
 }
 
 
