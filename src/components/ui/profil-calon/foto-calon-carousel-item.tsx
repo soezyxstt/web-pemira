@@ -1,4 +1,4 @@
-import Oval2 from "./../../../../public/properti/oval_2.png";
+import Oval2 from "../../../../public/properti/oval_2.png";
 import { header } from "@fonts";
 import Image from "next/image";
 import { Card, CardContent } from "~/components/ui/card";
