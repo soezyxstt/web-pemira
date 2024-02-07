@@ -3,7 +3,7 @@ import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 
 export const voteRouter = createTRPCRouter({
-    create: protectedProcedure.input(z.number()).mutation(async({ctx, input})=>{
+    create: protectedProcedure.input(z.string()).mutation(async({ctx, input})=>{
         return ctx.db.voteK3M.create({
             data:{
                 pil_1: input, 
