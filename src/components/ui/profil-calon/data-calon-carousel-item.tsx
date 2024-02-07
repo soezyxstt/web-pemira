@@ -31,7 +31,7 @@ const DataCalonCarouselItem = ({
   linkIG,
 }: DataCalonCardProps) => {
   const bgColor = section === "K3M" ? "bg-blue-5" : "bg-red-5";
-  const bgDesc = section === "K3M" ? "bg-teal-1" : "bg-red-3";
+  const bgDesc = section === "K3M" ? "bg-teal-1" : "bg-red-4";
 
   return (
     <CarouselItem /* Data Calon */>

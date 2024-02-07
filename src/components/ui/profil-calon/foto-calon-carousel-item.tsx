@@ -14,7 +14,7 @@ const FotoCalonCarouselItem = ({
   section,
 }: FotoCalonCarouselItemProps) => {
   const warnaBg = section === "K3M" ? "bg-blue-5" : "bg-red-5";
-  const warnaBgFoto = section === "K3M" ? "bg-teal-1" : "bg-red-3";
+  const warnaBgFoto = section === "K3M" ? "bg-teal-1" : "bg-red-4";
 
   return (
     <>
@@ -24,14 +24,16 @@ const FotoCalonCarouselItem = ({
             <Card
               className={`border-box flex h-[20rem] min-w-60 items-center justify-center border-4 border-black md:h-[27rem] ${warnaBg}`}
             >
-              <CardContent className="m-0 p-0">
-                <div className={`${warnaBgFoto} overflow-hidden rounded-xl`}>
+              <CardContent className="m-0 h-full w-full px-3 pb-6 pt-3">
+                <div
+                  className={`${warnaBgFoto} flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl`}
+                >
                   <Image
                     src={fotoCalon}
                     className="h-full w-full"
                     alt={`Foto calon ke-${index + 1}`}
-                    height={150}
-                    width={150}
+                    height={200}
+                    width={200}
                   />
                 </div>
               </CardContent>
