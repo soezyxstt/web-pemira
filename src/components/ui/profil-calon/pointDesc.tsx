@@ -14,7 +14,7 @@ const PointDesc = ({ section, tipe, bgDesc, point }: PointDescProps) => {
   if (tipe === "visi") {
     return (
       <CardDescription
-        className={`w-full ${bgDesc} py-1 pl-1 text-[8px] text-black drop-shadow-lg md:text-sm ${fontColor}`}
+        className={`w-full ${bgDesc} py-1 pl-2 text-[8px] text-black drop-shadow-lg md:text-sm ${fontColor} rounded-lg`}
       >
         {point}
       </CardDescription>
@@ -22,7 +22,7 @@ const PointDesc = ({ section, tipe, bgDesc, point }: PointDescProps) => {
   } else {
     return (
       <CardDescription
-        className={`w-full ${bgDesc} py-1 pl-1 text-[7px] text-black drop-shadow-lg md:text-xs ${fontColor}`}
+        className={`w-full ${bgDesc} py-1 pl-2 text-[7px] text-black drop-shadow-lg md:text-xs ${fontColor} rounded-lg`}
       >
         {point}
       </CardDescription>
