@@ -12,7 +12,7 @@ datasource db {
 
 model Admin {
   username String @unique
-  passwordHash String @unique
+  passwordHash String
 }
 
 model CalonK3M {
@@ -36,25 +36,32 @@ model CalonMWAWM {
     angkatan  Int
     visi      String[]
     misi      String[]
-    pilihan_1 Int @default(0)
-    pilihan_2 Int @default(0)
-    pilihan_3 Int @default(0)
+    pil_1_count Int @default(0)
+    pil_2_count Int @default(0)
+    pil_3_count Int @default(0)
 }
 
 model Mahasiswa {
     id           String   @id @default(uuid())
     NIM          String   @unique
     name         String
-    passwordHash String   @unique
     state        Boolean  @default(false)
     token        String   @unique
 }
 
-model Vote {
+model VoteMWAWM {
   id String @unique @default(uuid())
-  idMahasiswa String @default(uuid())
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  rankCalonK3M String[]
-  rankCalonMWAWM String[]
+  pil_1 Int
+  pil_2 Int
+  pil_3 Int
 }
+
+model VoteK3M {
+  id String @unique @default(uuid())
+  pil_1 Int
+  pil_2 Int
+  pil_3 Int
+}
+
+
+
