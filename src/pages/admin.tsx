@@ -123,12 +123,12 @@ const Admin: NextPageWithLayout = () => {
             </Dialog>
           </form>
         </div>
-        <div className="absolute left-20 top-28 h-40 w-10 rotate-45 bg-[url('../../public/bintang/13.PNG')] bg-contain bg-center bg-no-repeat md:left-48 md:w-20" />
-        <div className="absolute bottom-32 left-56 h-24 w-12 rotate-[110deg] bg-[url('../../public/bintang/14.PNG')] bg-contain bg-center bg-no-repeat md:bottom-72 md:w-24" />
+        <div className="absolute left-20 top-28 h-40 w-10 rotate-45 bg-[url('../../public/bintang/13.png')] bg-contain bg-center bg-no-repeat md:left-48 md:w-20" />
+        <div className="absolute bottom-32 left-56 h-24 w-12 rotate-[110deg] bg-[url('../../public/bintang/14.png')] bg-contain bg-center bg-no-repeat md:bottom-72 md:w-24" />
         <div className="absolute right-8 h-40 w-16 rotate-45 bg-[url('../../public/bintang/4.png')] bg-contain bg-center bg-no-repeat md:right-32 md:w-28" />
-        <div className="absolute right-[34vw] top-[32vh] z-0 h-40 w-20 rotate-45 bg-[url('../../public/properti/bintang_1.PNG')] bg-contain bg-center bg-no-repeat md:top-[30vh] md:w-28" />
-        <div className="absolute bottom-[20vh] left-[20vw] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_2.PNG')] bg-contain bg-center bg-no-repeat md:left-[34vw]" />
-        <div className="absolute right-24 top-24 h-40 w-16 bg-[url('../../public/bintang/15.PNG')] bg-contain bg-center bg-no-repeat" />
+        <div className="absolute right-[34vw] top-[32vh] z-0 h-40 w-20 rotate-45 bg-[url('../../public/properti/bintang_1.png')] bg-contain bg-center bg-no-repeat md:top-[30vh] md:w-28" />
+        <div className="absolute bottom-[20vh] left-[20vw] z-0 h-40 w-28 rotate-45 bg-[url('../../public/properti/bintang_2.png')] bg-contain bg-center bg-no-repeat md:left-[34vw]" />
+        <div className="absolute right-24 top-24 h-40 w-16 bg-[url('../../public/bintang/15.png')] bg-contain bg-center bg-no-repeat" />
         <div className="absolute -bottom-40 -left-24 h-80 w-80 bg-[url('../../public/jengga/stack.png')] bg-contain bg-center bg-no-repeat md:bottom-[-6rem] md:left-[-4rem]" />
         <div className="absolute -bottom-10 -right-24 h-60 w-60 bg-[url('../../public/jengga/scatter.png')] bg-contain bg-center bg-no-repeat md:-bottom-6 md:-right-8" />
       </div>
