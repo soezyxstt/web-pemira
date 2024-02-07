@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../public/logo.PNG";
+import Logo from "../../public/logo.png";
 import { body } from "@fonts";
 import { useMediaQuery } from "~/hook/useMediaQuery";
 import { FaInstagram } from "react-icons/fa";
