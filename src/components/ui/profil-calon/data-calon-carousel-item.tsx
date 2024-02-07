@@ -54,7 +54,12 @@ const DataCalonCarouselItem = ({
           >
             Visi
           </CardTitle>
-          <PointDesc tipe={"visi"} bgDesc={bgDesc} point={visi} />
+          <PointDesc
+            tipe={"visi"}
+            bgDesc={bgDesc}
+            point={visi}
+            section={section}
+          />
           <CardTitle
             className={`${body.className} flex justify-center pt-2 text-sm text-brown-1 md:text-3xl`}
           >
@@ -63,6 +68,7 @@ const DataCalonCarouselItem = ({
           <div className="flex flex-col space-y-1">
             {misi.map((misiItem, index) => (
               <PointDesc
+                section={section}
                 key={index}
                 tipe={"misi"}
                 bgDesc={bgDesc}
