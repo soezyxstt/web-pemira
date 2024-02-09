@@ -19,8 +19,8 @@ const CardInfo = ({
   photoSrc,
 }: CardInfoProps) => {
   return (
-    <div className=" relative flex h-32 w-full rounded-xl border-[3px] border-red-5 shadow shadow-black ">
-      <div className="flex w-32">
+    <div className=" relative flex w-full rounded-xl border-[3px] border-red-5 shadow shadow-black ">
+      <div className="flex w-28 max-w-28 flex-1 items-center justify-center">
         <Image
           src={photoSrc}
           alt="calon"
@@ -35,13 +35,13 @@ const CardInfo = ({
         <Image
           src="/bintang/16.png"
           alt="bintang"
-          width={60}
-          height={60}
-          className="absolute -left-6 -top-6 rotate-45"
+          width={70}
+          height={70}
+          className="absolute -left-7 -top-8 rotate-45"
         />
-        <h1 className="text-xl">{name}</h1>
-        <p className="text-xs">{`${jurusan}'${angkatan}`}</p>
-        <p className="text-xs">{visi}</p>
+        <h1 className="text-2xl">{name}</h1>
+        <p className="text-sm">{`${jurusan}'${angkatan}`}</p>
+        <p className="text-sm">{visi}</p>
         <div className="flex-1"></div>
         <p className="m-1 text-xs">{moto}</p>
       </div>

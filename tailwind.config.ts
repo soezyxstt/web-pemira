@@ -114,6 +114,7 @@ const config = {
         DEFAULT:
           "3px 3px 0px var(--tw-shadow-color), -2px -2px 0px var(--tw-shadow-color), -2px 2px 0px var(--tw-shadow-color), 2px -2px 0px var(--tw-shadow-color)",
         md: "4px 4px 0px var(--tw-shadow-color), -2.5px -2.5px 0px var(--tw-shadow-color), -2.5px 2.5px 0px var(--tw-shadow-color), 2.5px -2.5px 0px var(--tw-shadow-color)",
+        blurMd: "4px 4px 2px var(--tw-shadow-color)",
         lg: "6px 6px 0px var(--tw-shadow-color), -4px -4px 0px var(--tw-shadow-color), -4px 4px 0px var(--tw-shadow-color), 4px -4px 0px var(--tw-shadow-color)",
         xl: "8px 8px 0px var(--tw-shadow-color), -5.5px -5.5px 0px var(--tw-shadow-color), -5.5px 5.5px 0px var(--tw-shadow-color), 5.5px -5.5px 0px var(--tw-shadow-color)",
       },
