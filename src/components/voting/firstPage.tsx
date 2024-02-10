@@ -11,7 +11,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const mwa_wm = searchParams.get("mwa_wm");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
-      <div className="relative flex w-[35%] flex-col items-center justify-evenly gap- rounded-lg border-[4px] border-black px-8 py-4">
+      <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-4">
         <img
           src="/texture/frame_copy.png"
           alt="bintang"
