@@ -84,6 +84,10 @@ const Voting = () => {
               page > 4 ? "invisible" : "visible",
             )}
             onClick={() => {
+              if (page === 4) {
+                console.log("submit");
+                return;
+              }
               scrollRef.current?.scrollTo({
                 left:
                   scrollRef.current?.scrollLeft + scrollRef.current.clientWidth,
