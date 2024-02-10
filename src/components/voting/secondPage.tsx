@@ -11,7 +11,7 @@ const SecondPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const k3m = searchParams.get("k3m");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
-      <div className="relative flex w-[35%] flex-col items-center justify-evenly gap-3 rounded-lg border-[4px] border-black px-8 py-6">
+      <div className="relative flex w-[35%] flex-col items-center justify-evenly gap-3 rounded-lg border-[4px] border-black px-8 py-[3vh]">
         <img
           src="/texture/frame_copy.png"
           alt="bintang"
@@ -28,9 +28,9 @@ const SecondPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         />
 
         <h1 className="text-shadow-blurMd z-[1] text-3xl text-red-4 shadow-black/20">
-          k3m
+          mwa-wm
         </h1>
-        <div className="grid w-full flex-1 gap-4">
+        <div className="grid w-full flex-1 gap-[2vh]">
           {names.map((name, index) => (
             <CardInfo
               name={name}

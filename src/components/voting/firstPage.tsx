@@ -11,7 +11,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const mwa_wm = searchParams.get("mwa_wm");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
-      <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-6 gap-3">
+      <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-[3vh] gap-3">
         <img
           src="/texture/frame_copy.png"
           alt="bintang"
@@ -30,7 +30,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         <h1 className="text-shadow-blurMd z-[1] text-3xl text-red-4 shadow-black/20">
           k3m
         </h1>
-        <div className="flex-1 w-full grid gap-4">
+        <div className="flex-1 w-full grid gap-[2vh]">
           {names.map((name, index) => (
             <CardInfo
               name={name}
