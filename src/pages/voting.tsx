@@ -7,14 +7,12 @@ import FirstPage from "~/components/voting/firstPage";
 import SecondPage from "~/components/voting/secondPage";
 import ThirdPage from "~/components/voting/thirdPage";
 import ForthPage from "~/components/voting/forthPage";
-import { useSearchParams } from 'next/navigation';
 
 const Voting = () => {
   const [page, setPage] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
-  const chosenK3M = searchParams.get("k3m") ?? "";
-  const chosenMWA_WM = searchParams.get("mwa-wm") ?? "";
+  const backref = useRef<HTMLButtonElement>(null);
+  const nextref = useRef<HTMLButtonElement>(null);
 
   return (
     <div
@@ -57,8 +55,9 @@ const Voting = () => {
         </div>
         <div className="mt-2 flex justify-between">
           <button
+            ref={backref}
             className={cn(
-              "rounded-full border-[5px] border-brown-3 bg-brown-1 px-8 py-2 text-brown-5 drop-shadow-md transition-all hover:scale-[98%] hover:bg-brown-2/75 hover:drop-shadow-none",
+              "rounded-full border-[5px] border-brown-3 bg-brown-1 px-8 py-2 text-brown-5 drop-shadow-md transition-all hover:scale-[98%] hover:bg-brown-2/75 hover:drop-shadow-none disabled:cursor-not-allowed",
               page === 1 ? "invisible" : "visible",
             )}
             onClick={() => {
@@ -68,13 +67,20 @@ const Voting = () => {
                 behavior: "smooth",
               });
               setPage(page - 1);
+              if (backref.current) {
+                backref.current.disabled = true;
+                setTimeout(() => {
+                  backref.current?.removeAttribute("disabled");
+                }, 800);
+              }
             }}
           >
             Back
           </button>
           <button
+            ref={nextref}
             className={cn(
-              "rounded-full border-[5px] border-brown-3 bg-brown-1 px-8 py-2 text-brown-5 drop-shadow-md transition-all hover:scale-[98%] hover:bg-brown-2/75 hover:drop-shadow-none",
+              "rounded-full border-[5px] border-brown-3 bg-brown-1 px-8 py-2 text-brown-5 drop-shadow-md transition-all hover:scale-[98%] hover:bg-brown-2/75 hover:drop-shadow-none disabled:cursor-not-allowed",
               page > 4 ? "invisible" : "visible",
             )}
             onClick={() => {
@@ -84,6 +90,12 @@ const Voting = () => {
                 behavior: "smooth",
               });
               setPage(page + 1);
+              if (nextref.current) {
+                nextref.current.disabled = true;
+                setTimeout(() => {
+                  nextref.current?.removeAttribute("disabled");
+                }, 800);
+              }
             }}
           >
             {page === 4 ? "Submit" : "Next"}

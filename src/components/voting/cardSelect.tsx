@@ -14,8 +14,7 @@ const Card = ({
   className,
   order,
   href,
-  chosenK3M,
-  chosenMWAWM,
+  isK3M = false,
   ...props
 }: {
   nama?: string;
@@ -26,21 +25,37 @@ const Card = ({
   isSelected?: boolean;
   order?: number | null;
   href?: string;
-  chosenK3M?: string;
-  chosenMWAWM?: string;
+  isK3M?: boolean;
 } & HTMLAttributes<HTMLAnchorElement>) => {
-  const params = chosenK3M ?? chosenMWAWM;
+  const seacrhParams = useSearchParams();
+  const k3m = seacrhParams.get("k3m");
+  const mwawm = seacrhParams.get("mwa_wm");
+  const params = isK3M ? k3m : mwawm;
   const array = params?.split("-");
-  const link = !array?.includes(nomor) ? `${params ?? ""}-${nomor}` : `${params?.replace(`-${nomor}`, "")}`;
-  isSelected = !isSelected ? chosenK3M?.includes(nomor) || chosenMWAWM?.includes(nomor) : isSelected;
-  order = isSelected ? array?.indexOf(nomor) : null;
+  const link = !array?.includes(nomor)
+    ? `${params ?? ""}-${nomor}`
+    : `${params?.replace(`-${nomor}`, "")}`;
+  isSelected = !isSelected
+    ? isK3M
+      ? k3m?.includes(nomor)
+      : mwawm?.includes(nomor)
+    : isSelected;
+  isSelected = nama === "Tidak Memilih" ? false : isSelected;
+  order =
+    order == undefined || order == null
+      ? isSelected
+        ? array?.indexOf(nomor) === 0
+          ? null
+          : array?.indexOf(nomor)
+        : null
+      : order;
 
   const bgColor = isSelected
     ? variant === "red"
       ? "bg-red-3"
       : "bg-blue-5"
     : "bg-gray-500/75";
-  const textColor = variant === "red" ? "text-red-4" : "text-navy";
+  const textColor = isSelected ? variant === "red" ? "text-red-4" : "text-navy" : "text-gray-500/75";
   const borderColor = isSelected
     ? variant === "red"
       ? "border-red-3 "
@@ -50,15 +65,28 @@ const Card = ({
   if (isKotakKosong) {
     return (
       <Link
-        href={href ?? `?${new URLSearchParams({ k3m: link })}`}
+        href={
+          href ??
+          `?${new URLSearchParams(
+            isK3M
+              ? [
+                  ["k3m", link],
+                  ["mwa_wm", mwawm ?? ""],
+                ]
+              : [
+                  ["mwa_wm", link],
+                  ["k3m", k3m ?? ""],
+                ],
+          )}`
+        }
         className={cn(
-          "transition-color flex h-full w-full cursor-pointer flex-col items-center overflow-hidden rounded-xl border-[4px] border-b-0 bg-cream/40 drop-shadow-2xl transition-colors hover:bg-brown-2/90",
+          " flex h-full w-full cursor-pointer flex-col items-center overflow-hidden rounded-xl border-[4px] border-b-0 bg-cream/40 shadow-lg shadow-black/30 transition-colors hover:bg-brown-2/90",
           borderColor,
           className,
         )}
         {...props}
       >
-        <div className={cn("flex flex-1 items-center text-2xl", textColor)}>
+        <div className={cn("flex flex-1 items-center text-2xl *:transition-colors", textColor)}>
           Kotak Kosong
         </div>
         <div
@@ -75,9 +103,22 @@ const Card = ({
 
   return (
     <Link
-      href={href ?? `?${new URLSearchParams({ k3m: link })}`}
+      href={
+        href ??
+        `?${new URLSearchParams(
+          isK3M
+            ? [
+                ["k3m", link],
+                ["mwa_wm", mwawm ?? ""],
+              ]
+            : [
+                ["mwa_wm", link],
+                ["k3m", k3m ?? ""],
+              ],
+        )}`
+      }
       className={cn(
-        "flex h-full w-full cursor-pointer flex-col items-center overflow-hidden rounded-xl border-[4px] border-b-0 bg-cream/40 drop-shadow-2xl transition-colors hover:bg-brown-2/90",
+        "flex h-full w-full cursor-pointer flex-col items-center overflow-hidden rounded-xl border-[4px] border-b-0 bg-cream/40 shadow-lg shadow-black/30 transition-colors hover:bg-brown-2/90",
         borderColor,
         className,
       )}
@@ -91,7 +132,7 @@ const Card = ({
           height={75}
           className="mb-4 rounded-full"
         />
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center *:transition-colors">
           <h1 className={cn("text-2xl", textColor)}>{nama}</h1>
           <h1 className={cn("text-lg", textColor)}>{nomor}</h1>
         </div>

@@ -4,10 +4,11 @@ import { cn } from "~/lib/utils";
 import { useSearchParams } from "next/navigation";
 import { names } from "~/data/k3m";
 import CardInfo from "./cardInfo";
+import Link from 'next/link';
 
 const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const searchParams = useSearchParams();
-  const k3m = searchParams.get("k3m");
+  const mwa_wm = searchParams.get("mwa_wm");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
       <div className="relative flex w-[35%] flex-col items-center justify-evenly gap- rounded-lg border-[4px] border-black px-8 py-4">
@@ -40,13 +41,13 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         ))}
       </div>
       <div className="relative flex flex-1 flex-col items-center gap-6 rounded-lg border-[4px] border-blue-5 bg-brown-1 px-10 py-6">
-        <button
+        <Link href={`?${new URLSearchParams([["mwa_wm", mwa_wm ?? ""]])}`}
           className={cn(
             "absolute left-6 top-6 rounded-full border-[2px] border-navy bg-red-3 px-4 text-brown-2 transition-colors hover:drop-shadow-xl",
           )}
         >
           RESET
-        </button>
+        </Link>
         <h1 className="text-3xl text-blue-5 ">urutkan pilihan anda</h1>
         <div className="grid w-full flex-1 grid-cols-3 grid-rows-[1] gap-8">
           {names.map((name, index) => (
@@ -56,7 +57,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
               foto="/logo.png"
               variant="blue"
               key={index}
-              chosenK3M={k3m ?? ""}
+              isK3M
             />
           ))}
         </div>
@@ -65,7 +66,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
           variant="blue"
           className="h-[16vh]"
           nomor="04"
-          chosenK3M={k3m ?? ""}
+          isK3M
         />
       </div>
     </div>

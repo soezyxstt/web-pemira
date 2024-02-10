@@ -30,20 +30,20 @@ const CardInfo = ({
         />
       </div>
       <div
-        className={`${body.className}  flex flex-1 flex-col rounded-br-xl rounded-tr-xl bg-brown-1 text-center text-red-5 `}
+        className={`${body.className}  flex flex-1 flex-col rounded-br-xl rounded-tr-xl bg-brown-1 text-center text-red-5 py-1 border-l-2 border-red-4`}
       >
         <Image
           src="/bintang/16.png"
           alt="bintang"
           width={70}
           height={70}
-          className="absolute -left-7 -top-8 rotate-45"
+          className="absolute -left-8 -top-8 rotate-45"
         />
         <h1 className="text-2xl">{name}</h1>
         <p className="text-sm">{`${jurusan}'${angkatan}`}</p>
         <p className="text-sm">{visi}</p>
         <div className="flex-1"></div>
-        <p className="m-1 text-xs">{moto}</p>
+        <p className="text-xs">{moto}</p>
       </div>
     </div>
   );
