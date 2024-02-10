@@ -4,14 +4,14 @@ import { cn } from "~/lib/utils";
 import { useSearchParams } from "next/navigation";
 import { names } from "~/data/k3m";
 import CardInfo from "./cardInfo";
-import Link from 'next/link';
+import Link from "next/link";
 
 const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const searchParams = useSearchParams();
   const mwa_wm = searchParams.get("mwa_wm");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
-      <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-2">
+      <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-6 gap-3">
         <img
           src="/texture/frame_copy.png"
           alt="bintang"
@@ -27,21 +27,26 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
           className="absolute top-0 z-0 h-full w-full"
         />
 
-        <h1 className="z-[1] text-3xl text-red-4 text-shadow-blurMd shadow-black/20">k3m</h1>
-        {names.map((name, index) => (
-          <CardInfo
-            name={name}
-            visi="Visi"
-            jurusan="Jurusan"
-            angkatan="Angkatan"
-            photoSrc="/logo.png"
-            moto="Tagline / motto"
-            key={index}
-          />
-        ))}
+        <h1 className="text-shadow-blurMd z-[1] text-3xl text-red-4 shadow-black/20">
+          k3m
+        </h1>
+        <div className="flex-1 w-full grid gap-4">
+          {names.map((name, index) => (
+            <CardInfo
+              name={name}
+              visi="Visi"
+              jurusan="Jurusan"
+              angkatan="Angkatan"
+              photoSrc="/logo.png"
+              moto="Tagline / motto"
+              key={index}
+            />
+          ))}
+        </div>
       </div>
       <div className="relative flex flex-1 flex-col items-center gap-6 rounded-lg border-[4px] border-blue-5 bg-brown-1 px-10 py-6">
-        <Link href={`?${new URLSearchParams([["mwa_wm", mwa_wm ?? ""]])}`}
+        <Link
+          href={`?${new URLSearchParams([["mwa_wm", mwa_wm ?? ""]])}`}
           className={cn(
             "absolute left-6 top-6 rounded-full border-[2px] border-navy bg-red-3 px-4 text-brown-2 transition-colors hover:drop-shadow-xl",
           )}

@@ -92,7 +92,7 @@ const Card = ({
       >
         <div
           className={cn(
-            "flex flex-1 items-center text-2xl *:transition-colors",
+            "flex flex-1 items-center text-2xl *:transition-colors text-center px-4 py-6",
             textColor,
           )}
         >
@@ -133,7 +133,7 @@ const Card = ({
       )}
       {...props}
     >
-      <div className="flex flex-1 flex-col items-center justify-center py-3">
+      <div className="flex flex-1 flex-col items-center justify-center py-6 px-4">
         <Image
           src={foto ?? "/logo.png"}
           alt="avatar"
@@ -141,7 +141,7 @@ const Card = ({
           height={75}
           className="mb-4 rounded-full"
         />
-        <div className="flex flex-col items-center *:transition-colors">
+        <div className="flex flex-col items-center *:transition-colors *:text-center">
           <h1 className={cn("text-2xl", textColor)}>{nama}</h1>
           <h1 className={cn("text-lg", textColor)}>{nomor}</h1>
         </div>
