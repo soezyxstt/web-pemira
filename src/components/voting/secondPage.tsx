@@ -11,7 +11,7 @@ const SecondPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const k3m = searchParams.get("k3m");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
-      <div className="relative flex w-[35%] flex-col justify-evenly items-center gap-4 rounded-lg border-[4px] border-black px-8 py-4">
+      <div className="relative flex w-[35%] flex-col justify-evenly items-center rounded-lg border-[4px] border-black px-8 py-2">
         <img
           src="/texture/frame_copy.png"
           alt="bintang"
