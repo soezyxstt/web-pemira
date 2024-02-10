@@ -16,14 +16,14 @@ const Voting = () => {
 
   return (
     <div
-      className={`${header.className} relative z-0 flex min-h-dvh flex-col bg-cream px-12 pb-6 pt-12`}
+      className={`${header.className} relative z-0 flex min-h-dvh flex-col bg-cream px-12 pb-6 pt-8`}
     >
       <Image
         src="/bintang/5.png"
         alt="bintang"
         height={75}
         width={75}
-        className="absolute left-4 top-4 z-[-1] rotate-[15deg]"
+        className="absolute left-4 top-0 z-[-1] rotate-[15deg]"
       />
       <div className="flex flex-1 flex-col gap-2">
         <h1
