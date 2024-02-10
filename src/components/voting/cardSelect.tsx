@@ -42,7 +42,7 @@ const Card = ({
     : isSelected;
   isSelected = nama === "Tidak Memilih" ? false : isSelected;
   order =
-    order == undefined || order == null
+    !order
       ? isSelected
         ? array?.indexOf(nomor) === 0
           ? null
@@ -55,7 +55,11 @@ const Card = ({
       ? "bg-red-3"
       : "bg-blue-5"
     : "bg-gray-500/75";
-  const textColor = isSelected ? variant === "red" ? "text-red-4" : "text-navy" : "text-gray-500/75";
+  const textColor = isSelected
+    ? variant === "red"
+      ? "text-red-4"
+      : "text-navy"
+    : "text-gray-500/75";
   const borderColor = isSelected
     ? variant === "red"
       ? "border-red-3 "
@@ -86,7 +90,12 @@ const Card = ({
         )}
         {...props}
       >
-        <div className={cn("flex flex-1 items-center text-2xl *:transition-colors", textColor)}>
+        <div
+          className={cn(
+            "flex flex-1 items-center text-2xl *:transition-colors",
+            textColor,
+          )}
+        >
           Kotak Kosong
         </div>
         <div
