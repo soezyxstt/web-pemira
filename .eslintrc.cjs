@@ -18,6 +18,7 @@ const config = {
     // "@typescript-eslint/restrict-template-expressions": "off",
     // "@typescript-eslint/no-base-to-string": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
 
     "@typescript-eslint/consistent-type-imports": [
       "warn",

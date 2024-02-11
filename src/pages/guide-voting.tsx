@@ -14,4 +14,6 @@ const GuideVoting = () => {
   );
 }
 
+
+
 export default GuideVoting;
