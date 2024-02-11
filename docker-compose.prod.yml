@@ -7,19 +7,7 @@ services:
       context: ./next-app
       dockerfile: prod.Dockerfile
       args:
-        POSTGRES_URL: "postgres://default:qDmhuP5Nb0cL@ep-bold-credit-04110203-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb"
-        POSTGRES_PRISMA_URL: "postgres://default:qDmhuP5Nb0cL@ep-bold-credit-04110203-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb?pgbouncer=true&connect_timeout=15"
-        POSTGRES_URL_NON_POOLING: "postgres://default:qDmhuP5Nb0cL@ep-bold-credit-04110203.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb"
-        POSTGRES_USER: "default"
-        POSTGRES_HOST: "ep-bold-credit-04110203-pooler.ap-southeast-1.postgres.vercel-storage.com"
-        POSTGRES_PASSWORD: "qDmhuP5Nb0cL"
-        POSTGRES_DATABASE: "verceldb"
-        NEXTAUTH_URL: "http://localhost:3000"
-        NEXTAUTH_SECRET: "xeqmUuosdhQZTzAugvp9Dc7F9Xl7P6+ARUld0XMYtac="
-        SESSION_MAXAGE: "2592000"
-        S_MAXAGE: "1"
-        STALE_WHILE_REVALIDATE: "86400"
-        SAMPLER_RATIO: "0.1"
+        NODE_ENV: production
     restart: always
     ports:
       - 3000:3000
