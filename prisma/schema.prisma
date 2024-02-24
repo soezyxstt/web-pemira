@@ -1,55 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider  = "postgresql"
-    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model User {
-    id           String   @id @default(uuid())
-    NIM          String   @unique
-    name         String
-    passwordHash String
-    createdAt    DateTime @default(now())
-    updatedAt    DateTime @updatedAt
+model Admin {
+  id           String @id @default(uuid())
+  username     String @unique
+  passwordHash String
 }
 
-model CalonK3M {
-    id        String   @id @default(uuid())
-    NIM       String   @unique
-    name      String
-    jurusan   String
-    angkatan  Int
-    visi      String[]
-    misi      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    votes     Vote[]
+model Mahasiswa {
+  id           String   @id @default(uuid())
+  NIM          String   @unique
+  state        Boolean  @default(false)
+  token        String   @unique
 }
 
-model CalonMWAWM {
-    id        String   @id @default(uuid())
-    NIM       String   @unique
-    name      String
-    jurusan   String
-    angkatan  Int
-    visi      String[]
-    misi      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    votes     Vote[]
+model VoteMWAWM {
+  id String @unique @default(uuid())
+  pil_1 String?
+  pil_2 String?
+  pil_3 String?
 }
 
-model Vote {
-    id           String      @id @default(uuid())
-    NIM          String      @unique
-    createdAt    DateTime    @default(now())
-    updatedAt    DateTime    @updatedAt
-    calonK3M     CalonK3M?   @relation(fields: [calonK3MId], references: [id])
-    calonK3MId   String?
-    calonMWAWM   CalonMWAWM? @relation(fields: [calonMWAWMId], references: [id])
-    calonMWAWMId String?
+model VoteK3M {
+  id String @unique @default(uuid())
+  pil_1 String?
+  pil_2 String?
+  pil_3 String?
 }
+
+
