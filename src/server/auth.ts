@@ -6,8 +6,8 @@ import {
 } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "~/server/db";
-import { compare } from "bcrypt-ts"
-import { TRPCError } from '@trpc/server';
+import { compare } from "bcrypt-ts";
+import { TRPCError } from "@trpc/server";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -20,7 +20,7 @@ declare module "next-auth" {
     user: DefaultSession["user"] & {
       id: string;
       username: string;
-    } & DefaultSession["user"];
+    };
   }
 
   interface User {
@@ -34,7 +34,6 @@ declare module "next-auth" {
   // }
 }
 
-
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
  *
@@ -45,7 +44,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   jwt: {
-    maxAge: 30 * 24 * 60 * 60,
+    maxAge: 2 * 24 * 60 * 60,
   },
   callbacks: {
     session: ({ session, token }) => ({
@@ -69,17 +68,16 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
-
+      async authorize(credentials, _req) {
         if (!credentials) {
           throw new TRPCError({
             code: "BAD_REQUEST",
             message: "Credentials tidak ditemukan",
           });
         }
-        const { username, password } = credentials
+        const { username, password } = credentials;
 
         if (!username || !password) {
           throw new TRPCError({
@@ -88,14 +86,12 @@ export const authOptions: NextAuthOptions = {
           });
         }
 
-
         // ini masih asumsi database tabel User ada id, username, password
-        const user = await prisma.user.findUnique({
+        const user = await prisma.admin.findUnique({
           where: {
-            username: username
-          }
-        })
-
+            username: username,
+          },
+        });
 
         if (!user) {
           throw new TRPCError({
@@ -114,11 +110,11 @@ export const authOptions: NextAuthOptions = {
         }
 
         return {
-          id = user.id,
-          username = user.username,
-        }
+          id: user.id,
+          username: user.username,
+        };
       },
-    })
+    }),
 
     /**
      * ...add more providers here.
