@@ -8,16 +8,16 @@ export default function Home() {
   const targetDate = new Date("2024-02-07T23:59:59");
   return (
     <>
-      <div className="dusty-bg flex flex-col items-center">
+      <div className="dusty-bg flex flex-col items-center justify-center h-[calc(100dvh-4rem)]">
         <Bg />
-        <div className="z-10">
+        <div className="z-10 flex flex-col gap-10">
           <h1
-            className={`${header.className} mb-16 mt-48 text-center text-8xl text-teal-5 drop-shadow-lg`}
+            className={`${header.className} text-center text-8xl text-teal-5 drop-shadow-lg`}
           >
             PEMILU RAYA KM ITB 2024
           </h1>
           <h1
-            className={`${body.className} mb-16 text-center text-3xl text-[#01577C] drop-shadow-lg`}
+            className={`${body.className} text-center text-3xl text-[#01577C] drop-shadow-lg`}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit
           </h1>
@@ -26,7 +26,7 @@ export default function Home() {
           >
             #GERAKINKLUSIF
           </h1>
-          <div className="mt-36 text-center">
+          <div className=" text-center">
             <CountdownTimer targetDate={targetDate} />
           </div>
         </div>
