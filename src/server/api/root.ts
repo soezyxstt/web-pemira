@@ -1,5 +1,5 @@
 import { createTRPCRouter } from "~/server/api/trpc";
-import { voteRouter } from "./router/voteTools";
+import { voteRouter } from "./routers/voteTools";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +7,7 @@ import { voteRouter } from "./router/voteTools";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-    voteTools: voteRouter
+  voteTools: voteRouter,
 });
 
 // export type definition of API
