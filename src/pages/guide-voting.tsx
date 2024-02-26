@@ -6,13 +6,8 @@ import FaQ from '~/components/faq';
 
 const GuideVoting = () => {
   return (
-    <div className='flex items-center justify-center flex-col dusty-bg gap-[5em]'>
+    <div className='flex items-center justify-center flex-col dusty-bg gap-20 py-10 md:py-16'>
       <Bg />
-      <div className={`${header.className} flex-col md:flex-row flex gap-3 md:gap-2 text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-4xl z-[1] text-center`}>
-        <h1>Guide Voting</h1>
-        <h1 className='hidden md:block'>-</h1>
-        <h1>Coming Soon</h1>
-      </div>
       <Voting />
       <LokasiVoting/>
       <FaQ/>

@@ -57,13 +57,13 @@ const ProfilCalon = () => {
           </div>
         </div>
       </div>
-      <div className='min-h-dvh snap-center'>
+      <div className='snap-center'>
         <div /* Text MWA - WM */
-          className={`${header.className} pt-20 text-center text-4xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
+          className={`${header.className} md:pt-20 text-center text-4xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
         >
           {"MWA - WM"}
         </div>
-        <div className="flex w-full flex-col p-14 md:flex-row md:space-x-16">
+        <div className="flex w-full flex-col px-14 pt-10 md:flex-row md:space-x-16">
           <div /* Photo Carousel */
             className="border-box mx-auto mb-5 flex h-[20rem] w-full flex-shrink-0 flex-grow-0 justify-center md:h-[27rem] md:w-auto"
           >
