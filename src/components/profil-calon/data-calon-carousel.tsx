@@ -4,7 +4,7 @@ import {
   CarouselContent,
   CarouselNext,
   CarouselPrevious,
-} from "../carousel";
+} from "../ui/carousel";
 import DataCalonCarouselItem from "./data-calon-carousel-item";
 
 const DataCalonCarousel = ({ section }: { section: string }) => {

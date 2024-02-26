@@ -5,7 +5,7 @@ import {
   CarouselPrevious,
 } from "~/components/ui/carousel";
 
-import FotoCalonCarouselItem from "~/components/ui/profil-calon/foto-calon-carousel-item";
+import FotoCalonCarouselItem from "~/components/profil-calon/foto-calon-carousel-item";
 
 type FotoCalonCarouselProps = {
   section: string;

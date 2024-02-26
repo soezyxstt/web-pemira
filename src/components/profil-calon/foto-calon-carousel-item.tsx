@@ -1,4 +1,4 @@
-import Oval2 from "../../../../public/properti/oval_2.png";
+import Oval2 from "../../../public/properti/oval_2.png";
 import { header } from "@fonts";
 import Image from "next/image";
 import { Card, CardContent } from "~/components/ui/card";
@@ -13,8 +13,8 @@ const FotoCalonCarouselItem = ({
   fotofotoCalon,
   section,
 }: FotoCalonCarouselItemProps) => {
-  const warnaBg = section === "K3M" ? "bg-blue-5" : "bg-red-5";
-  const warnaBgFoto = section === "K3M" ? "bg-teal-1" : "bg-red-4";
+  const warnaBg = section === "K3M" ? "bg-blue-4" : "bg-red-4";
+  const warnaBgFoto = section === "K3M" ? "bg-blue-3" : "bg-red-3";
 
   return (
     <>
@@ -26,11 +26,11 @@ const FotoCalonCarouselItem = ({
             >
               <CardContent className="m-0 h-full w-full px-3 pb-6 pt-3">
                 <div
-                  className={`${warnaBgFoto} flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl`}
+                  className={`${warnaBgFoto} flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl p-2`}
                 >
                   <Image
                     src={fotoCalon}
-                    className="h-full w-full"
+                    className="h-full w-full object-contain"
                     alt={`Foto calon ke-${index + 1}`}
                     height={200}
                     width={200}
@@ -48,7 +48,7 @@ const FotoCalonCarouselItem = ({
               width={140}
             />
             <span
-              className={`${header.className} absolute -top-[20%] text-4xl text-brown-1 md:text-5xl`}
+              className={`${header.className} absolute -top-[20%] text-4xl text-brown-1 md:text-5xl text-stroke-width-1 text-stroke-color-red-5`}
             >
               {"0" + (index + 1).toString()}
             </span>

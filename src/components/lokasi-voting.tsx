@@ -23,11 +23,11 @@ const LokasiVoting = () => {
     return (
       <div className='z-[1] flex items-center justify-center flex-col'>
         <h1
-          className={`${header.className} text-red-4 text-4xl mb-10`}
+          className={`${header.className} text-custom mb-10`}
         >
             Lokasi
         </h1>
-        <div className='bg-red-1 lg:pt-5 lg:px-5 w-[60vw] md:rounded-[1.5rem] rounded-[.5em] overflow-clip shadow-md'>
+        <div className='bg-red-1 lg:pt-5 lg:px-5 md:w-[60vw] w-[80vw] md:rounded-[1.5rem] rounded-[.5em] overflow-clip shadow-md border border-oren'>
           <div>
             <iframe
               src={Lokasi.src[currentIdx]}

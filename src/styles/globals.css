@@ -6,6 +6,10 @@
   .dusty-bg {
     @apply bg-[url('../../public/texture/dusty.png')] bg-cover bg-center relative;
   }
+
+  .text-custom {
+    @apply text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-center text-4xl;
+  }
 } 
 
 @layer base {

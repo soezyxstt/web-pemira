@@ -3,8 +3,6 @@ import { header } from '~/styles/fonts';
 import LokasiVoting from '~/components/lokasi-voting';
 import FaQ from '~/components/faq';
 
-
-
 const GuideVoting = () => {
   return (
     <div className='flex items-center justify-center flex-col dusty-bg gap-[5em]'>
