@@ -4,6 +4,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import { body } from "@fonts";
 import FadeIn from "./fade-in";
+import { Toaster } from './ui/sonner';
 
 const Layout = ({ children }: { children?: ReactNode }) => (
   <FadeIn>
@@ -14,7 +15,10 @@ const Layout = ({ children }: { children?: ReactNode }) => (
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="flex flex-1 flex-col *:flex-1 *:bg-cream">{children}</main>
+      <Toaster richColors />
+      <main className="flex flex-1 flex-col *:flex-1 *:bg-cream">
+        {children}
+      </main>
     </div>
     <Footer />
   </FadeIn>

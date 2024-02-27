@@ -1,6 +1,6 @@
 import FadeIn from "~/components/fade-in";
-import type { NextPageWithLayout } from "./_app";
-import TealStuff from "../../public/ribbon/3.png";
+import type { NextPageWithLayout } from "../_app";
+import TealStuff from "../../../public/ribbon/3.png";
 import Head from "next/head";
 import Image from "next/image";
 import { body, header } from "@fonts";

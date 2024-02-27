@@ -37,7 +37,7 @@ const ProfilCalon = () => {
       <Bg />
       <div className="min-h-[calc(100dvh-4rem)]">
         <div /* Text K3M */
-          className={`${header.className} pt-10 md:pt-20 text-center text-4xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
+          className={`${header.className} pt-10 md:pt-20 text-center text-4xl md:text-6xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
         >
           {"K3M"}
         </div>
@@ -59,7 +59,7 @@ const ProfilCalon = () => {
       </div>
       <div className='snap-center'>
         <div /* Text MWA - WM */
-          className={`${header.className} md:pt-20 text-center text-4xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
+          className={`${header.className} md:pt-20 text-center text-4xl md:text-6xl text-oren shadow-teal-4 drop-shadow-sm text-shadow text-stroke-width-1 text-stroke-color-cream`}
         >
           {"MWA - WM"}
         </div>
