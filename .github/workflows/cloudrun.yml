@@ -55,10 +55,10 @@ on:
 
 env:
   PROJECT_ID: ${{secrets.PROJECT_ID}} # TODO: update Google Cloud project id
-  GAR_LOCATION: asia-southeast1 # TODO: update Artifact Registry location
-  REPOSITORY: web-pemira # TODO: update Artifact Registry repository name
+  GAR_LOCATION: 'asia' # TODO: update Artifact Registry location
+  REPOSITORY: 'web-pemira' # TODO: update Artifact Registry repository name
   SERVICE: ${{secrets.CLOUD_RUN_SERVICE_ACCOUNT}} # TODO: update Cloud Run service name
-  REGION: asia-southeast1 # TODO: update Cloud Run service region
+  REGION: 'asia-southeast1' # TODO: update Cloud Run service region
 
 jobs:
   deploy:
@@ -93,7 +93,7 @@ jobs:
       # Authenticate Docker to Google Cloud Artifact Registry
       - name: Docker Auth
         id: docker-auth
-        uses: 'docker/login-action@v2.1.0'
+        uses: 'docker/login-action@v3'
         with:
           username: 'oauth2accesstoken'
           password: '${{ steps.auth.outputs.access_token }}'
