@@ -54,10 +54,10 @@ on:
       - production
 
 env:
-  PROJECT_ID: 'pemirakmitb' # TODO: update Google Cloud project id
+  PROJECT_ID: pemirakmitb # TODO: update Google Cloud project id
   GAR_LOCATION: 'asia-southeast1' # TODO: update Artifact Registry location
   REPOSITORY: 'web-pemira' # TODO: update Artifact Registry repository name
-  SERVICE: 'docker-github@pemirakmitb.iam.gserviceaccount.com' # TODO: update Cloud Run service name
+  SERVICE: web-pemira # TODO: update Cloud Run service name
   REGION: 'asia-southeast1' # TODO: update Cloud Run service region
 
 jobs:
