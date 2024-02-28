@@ -2,8 +2,10 @@ import { header } from "@fonts";
 import Image from "next/image";
 import Link from "next/link";
 import Bg from "~/components/background";
-import Countdown from "~/components/countdown";
 import Card from "~/components/dashboard/card";
+import dynamic from 'next/dynamic'
+
+const Countdown = dynamic(() => import('~/components/countdown'), { ssr: false })
 
 export default function Home() {
   return (
