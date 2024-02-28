@@ -4,9 +4,7 @@ import { body, header } from "@fonts";
 import { Progress } from "~/components/ui/progress";
 import { cn } from "~/lib/utils";
 import FirstPage from "~/components/voting/firstPage";
-import SecondPage from "~/components/voting/secondPage";
 import ThirdPage from "~/components/voting/thirdPage";
-import ForthPage from "~/components/voting/forthPage";
 import FadeIn from "~/components/fade-in";
 import Head from 'next/head';
 
@@ -58,9 +56,7 @@ const Voting = () => {
           >
             <div className="flex w-[calc(4*(100vw-6rem))] flex-1">
               <FirstPage />
-              <SecondPage />
               <ThirdPage />
-              <ForthPage />
             </div>
           </div>
           <div className="mt-2 flex justify-between">
@@ -95,7 +91,7 @@ const Voting = () => {
                 page > 4 ? "invisible" : "visible",
               )}
               onClick={() => {
-                if (page === 4) {
+                if (page === 2) {
                   console.log("submit");
                   return;
                 }
@@ -114,7 +110,7 @@ const Voting = () => {
                 }
               }}
             >
-              {page === 4 ? "Submit" : "Next"}
+              {page === 2 ? "Submit" : "Next"}
             </button>
           </div>
         </div>
