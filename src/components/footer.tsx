@@ -11,7 +11,7 @@ const Footer = () => {
   const isMd = useMediaQuery("(min-width: 768px)");
   return (
     <footer
-      className={`${montserrat.className} flex flex-col items-center gap-6 bg-navy  px-6 pb-4 pt-8 text-cream md:px-16`}
+      className={`${montserrat.className} flex flex-col items-center gap-6 bg-navy  px-6 pb-4 pt-8 text-cream md:px-16 z-50`}
     >
       <div className="flex w-full flex-1 flex-col items-center gap-6 md:flex-row md:gap-[12vw] lg:gap-[calc(12vw+2rem)]">
         <div className="rounded-full bg-blue-4 p-4">

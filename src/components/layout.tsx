@@ -19,8 +19,8 @@ const Layout = ({ children }: { children?: ReactNode }) => (
       <main className="flex flex-1 flex-col *:flex-1 *:bg-cream">
         {children}
       </main>
-    </div>
     <Footer />
+    </div>
   </FadeIn>
 );
 

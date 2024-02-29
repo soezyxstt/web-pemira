@@ -14,10 +14,10 @@ const Countdown = dynamic(() => import("~/components/countdown"), {
 export default function Home() {
   return (
     <div className="dusty-bg flex h-screen w-full snap-y snap-mandatory flex-col items-center justify-center [&_.ch]:px-[10vw]">
-      <Bg className="top-0 h-[calc(100dvh-4rem)] bg-gradient-to-b from-cream from-85% to-brown-1" />
-      <Bg className="top-[calc(100dvh-4rem)] h-dvh bg-brown-1" />
-      <Bg className="top-[calc(200dvh-4rem)] h-dvh bg-brown-1" />
-      <Bg className="top-[calc(300dvh-4rem)] h-dvh bg-gradient-to-b from-brown-1 to-cream to-30%" />
+      <Bg className="top-0 h-[calc(100dvh)] bg-gradient-to-b from-cream from-85% to-brown-1" />
+      <Bg className="top-[calc(100dvh)] h-dvh bg-brown-1" />
+      <Bg className="top-[calc(200dvh)] h-dvh bg-brown-1" />
+      <Bg className="top-[calc(300dvh)] h-dvh bg-gradient-to-b from-brown-1 to-cream to-30%" />
       <div className=" w-full snap-center">
         <div
           className={`ch isolate flex h-[calc(100vh-4rem)] w-full flex-col justify-center gap-6 text-center`}
