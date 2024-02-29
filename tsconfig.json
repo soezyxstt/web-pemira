@@ -29,8 +29,12 @@
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./src/components/*"],
-      "@fonts": ["./src/styles/fonts"],
+      "@fonts": ["./src/styles/fonts"]
     }
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "include": [
     ".eslintrc.cjs",

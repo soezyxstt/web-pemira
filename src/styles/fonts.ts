@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Montserrat, Open_Sans } from 'next/font/google'
 
 const header = localFont({
   src: "fonts/PropagationRegular.ttf",
@@ -16,5 +17,15 @@ const bodyBoldItalic = localFont({
 const bodyItalic = localFont({
   src: "/fonts/TangoSans_Italic.ttf",
 });
+const openSans = Open_Sans({
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+})
+const montserrat = Montserrat({
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+})
 
-export { header, body, bodyBold, bodyBoldItalic, bodyItalic };
+export { header, body, bodyBold, bodyBoldItalic, bodyItalic, openSans, montserrat };

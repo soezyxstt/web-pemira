@@ -1,20 +1,22 @@
 import FadeIn from "~/components/fade-in";
-import type { NextPageWithLayout } from "../_app";
 import TealStuff from "../../../public/ribbon/3.png";
 import Head from "next/head";
 import Image from "next/image";
 import { body, header } from "@fonts";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { Separator } from "~/components/ui/separator";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import {
   Dialog,
   DialogHeader,
   DialogTitle,
   DialogContent,
 } from "~/components/ui/dialog";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "~/server/auth";
 
-const Admin: NextPageWithLayout = () => {
+const Admin = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
@@ -32,8 +34,6 @@ const Admin: NextPageWithLayout = () => {
     <FadeIn>
       <Head>
         <title>Admin - PEMIRA ITB</title>
-        <meta name="description" content="Website Pemilu Raya ITB" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-cream py-8">
         <div className="absolute z-0 h-screen w-full bg-[url('../../public/logo.png')] bg-contain bg-center bg-no-repeat opacity-10"></div>
@@ -136,6 +136,26 @@ const Admin: NextPageWithLayout = () => {
   );
 };
 
-Admin.getLayout = (page) => page;
+Admin.getLayout = (page: ReactNode) => page;
 
+export const getServerSideProps = (async (context) => {
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  if (!session?.user.username) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session: {
+        username: session.user.username ?? null,
+      },
+    },
+  };
+}) satisfies GetServerSideProps<{}>;
 export default Admin;

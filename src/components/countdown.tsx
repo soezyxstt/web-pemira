@@ -61,9 +61,9 @@ const Com = ({ str }: { str?: string }) => {
   const after = "";
   return (
     <div
-      className={` ${before} ${after} relative flex flex-col items-center justify-center border border-brown-5 bg-gradient-to-b from-brown-1 from-15% to-brown-2 md:py-5 py-3 drop-shadow-lg w-12 md:w-24 md:rounded-xl text-4xl rounded md:text-7xl`}
+      className={` ${before} ${after} relative flex flex-col items-center justify-center border border-brown-5 bg-gradient-to-b from-brown-1 from-15% to-brown-2 md:py-5 py-3 drop-shadow-lg w-14 md:w-24 md:rounded-xl text-4xl rounded md:text-7xl`}
     >
-      <div className="relative w-full overflow-hidden h-[2.5rem] md:h-[5.25rem]">
+      <div className="relative w-full overflow-hidden h-[3.5rem] md:h-[5.25rem]">
         <div className=" absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {str}
         </div>

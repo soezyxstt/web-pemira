@@ -63,6 +63,7 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
+  
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -126,6 +127,10 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  pages: {
+    signIn: "/login",
+    signOut: "/",
+  },
 };
 
 /**

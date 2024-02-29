@@ -2,7 +2,7 @@ import { type HTMLAttributes } from "react";
 import { cn } from "~/lib/utils";
 import Card from "./cardSelect";
 import { useSearchParams } from "next/navigation";
-import { names } from "~/data/k3m";
+import { k3m as data } from "~/data/k3m";
 
 const ThirdPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const searchParams = useSearchParams();
@@ -38,7 +38,7 @@ const ThirdPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
             <Card
               href='#'
               order={index}
-              nama={names[parseInt(nomor) - 1]}
+              nama={data[parseInt(nomor) - 1]?.name}
               variant="blue"
               key={index}
               nomor={nomor}

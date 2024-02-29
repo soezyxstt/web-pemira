@@ -6,9 +6,12 @@ import { cn } from "~/lib/utils";
 import FirstPage from "~/components/voting/firstPage";
 import ThirdPage from "~/components/voting/thirdPage";
 import FadeIn from "~/components/fade-in";
-import Head from 'next/head';
+import Head from "next/head";
+import { InferGetServerSidePropsType, type GetServerSideProps } from "next";
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '~/server/auth';
 
-const Voting = () => {
+const Voting = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [page, setPage] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const backref = useRef<HTMLButtonElement>(null);
@@ -118,6 +121,27 @@ const Voting = () => {
     </FadeIn>
   );
 };
+
+export const getServerSideProps = (async (context) => {
+  const session = await getServerSession(context.req, context.res, authOptions);
+
+  if (!session?.user.username) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session: {
+        username: session.user.username ?? null,
+      }
+    },
+  };
+}) satisfies GetServerSideProps;
 
 Voting.getLayout = (page: ReactNode) => page;
 export default Voting;

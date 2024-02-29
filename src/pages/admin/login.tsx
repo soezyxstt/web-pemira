@@ -4,9 +4,12 @@ import { header } from "~/styles/fonts";
 import { toast } from "sonner";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken, signIn } from "next-auth/react";
+import { getServerSession } from 'next-auth';
+import { authOptions } from '~/server/auth';
+import Head from 'next/head';
 
 type FormValues = {
-  nim: string;
+  username: string;
   password: string;
 };
 
@@ -21,7 +24,7 @@ const Login = ({
   } = useForm<FormValues>({
     mode: "onSubmit",
     defaultValues: {
-      nim: "",
+      username: "",
       password: "",
     },
   });
@@ -30,28 +33,28 @@ const Login = ({
     toast.success("Logged in", { duration: 2000 });
   };
 
-  const handleRedirect = () => {
-    console.log("redirect");
-  };
-
   const onSubmit: SubmitHandler<FormValues> = async (data, e) => {
     e?.preventDefault();
     const res = await signIn("credentials", {
-      nim: data.nim,
+      username: data.username,
       password: data.password,
-      redirect: false,
-      csrfToken,
+      crsfToken: csrfToken,
+      callbackUrl: "/admin"
     });
 
     if (res?.error) {
       toast.error(res.error, { duration: 2000 });
-      reset({ nim: "", password: "" })
+      reset({ username: "", password: "" })
       return;
     }
     handleLoggedIn();
   };
+  
   return (
     <div className="dusty-bg flex flex-col items-center justify-center">
+      <Head>
+        <title>PEMIRA - Admin Login</title>
+      </Head>
       <Bg />
       <form
         onSubmit={(e) => handleSubmit(onSubmit)(e)}
@@ -64,7 +67,7 @@ const Login = ({
             type="text"
             placeholder="username"
             className=" rounded-lg border-2 bg-teal-3/90 px-4 py-2 text-brown-1 outline-1 outline-brown-1 placeholder:text-brown-1 "
-            {...register("nim", { required: "This is required" })}
+            {...register("username", { required: "This is required" })}
           />
           <input
             type="password"
@@ -78,7 +81,7 @@ const Login = ({
           disabled={!isDirty || isSubmitting || !isValid}
           className="rounded border bg-blue-4 px-5 py-1.5 text-brown-1 hover:bg-teal-3/90 disabled:cursor-not-allowed disabled:bg-blue-4/90 disabled:text-red-3 disabled:line-through disabled:transition-colors "
         >
-          Login
+          {isSubmitting ? "Loading..." : "Login"}
         </button>
       </form>
     </div>
@@ -89,6 +92,17 @@ export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   const csrfToken = await getCsrfToken(context);
+  const session = await getServerSession(context.req, context.res, authOptions)
+
+  if (session?.user.username) {
+    return {
+      redirect: {
+        destination: "/admin",
+        permanent: false,
+      }
+    }
+  }
+
   return {
     props: { csrfToken },
   };

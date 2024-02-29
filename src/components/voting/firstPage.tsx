@@ -2,7 +2,7 @@ import { type HTMLAttributes } from "react";
 import Card from "./cardSelect";
 import { cn } from "~/lib/utils";
 import { useSearchParams } from "next/navigation";
-import { names } from "~/data/k3m";
+import { k3m } from "~/data/k3m";
 import CardInfo from "./cardInfo";
 import Link from "next/link";
 
@@ -31,14 +31,14 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
           k3m
         </h1>
         <div className="flex-1 w-full grid gap-[2vh]">
-          {names.map((name, index) => (
+          {k3m.map((calon, index) => (
             <CardInfo
-              name={name}
-              visi="Visi"
-              jurusan="Jurusan"
-              angkatan="Angkatan"
-              photoSrc="/logo.png"
-              moto="Tagline / motto"
+              name={calon.name}
+              visi={calon.visi}
+              jurusan={calon.jurusan}
+              angkatan="21"
+              photoSrc={calon.photo}
+              moto={calon.motto}
               key={index}
             />
           ))}
@@ -55,11 +55,11 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         </Link>
         <h1 className="text-3xl text-blue-5 ">urutkan pilihan anda</h1>
         <div className="grid w-full flex-1 grid-cols-3 grid-rows-[1] gap-8">
-          {names.map((name, index) => (
+          {k3m.map((calon, index) => (
             <Card
-              nama={name}
+              nama={calon.name}
               nomor={(index + 1).toString().padStart(2, "0")}
-              foto="/logo.png"
+              foto={calon.photo}
               variant="blue"
               key={index}
               isK3M
