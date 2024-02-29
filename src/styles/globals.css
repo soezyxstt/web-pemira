@@ -4,7 +4,7 @@
 
 @layer components {
   .dusty-bg {
-    @apply bg-[url('../../public/texture/dusty.png')] bg-cover bg-center relative;
+    @apply bg-[url('../../public/texture/dusty-2.png')] bg-cover bg-center relative;
   }
 
   .text-custom {
