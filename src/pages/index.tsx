@@ -61,6 +61,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 md:gap-[7vw]">
               {k3m.map((k3m, i) => (
                 <Card
+                  key={i}
                   name={k3m.name}
                   major={k3m.jurusan}
                   batch="21"
