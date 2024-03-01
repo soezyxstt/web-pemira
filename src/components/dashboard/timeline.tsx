@@ -88,11 +88,6 @@ const Card = ({
       ? "-top-4 -translate-y-full"
       : "-bottom-4 translate-y-full"
     : index % 2 === 0 ? "-right-2 translate-x-full" : "-translate-x-full -left-2";
-  const before = `before:absolute before:w-3 before:h-3 before:rounded-full before:bg-teal-4 ${
-    index % 2 === 0
-      ? "md:before:top-0 md:before:-translate-y-[calc(50%-2px)]"
-      : "md:before:bottom-0 md:before:translate-y-[calc(50%+2px)]"
-  } md:before:left-1/2 md:before:-translate-x-1/2`;
   const after = `after:absolute after:w-3 after:h-3 after:rounded-full after:bg-teal-4 ${
     index % 2 === 0
       ? " md:after:bottom-0 md:after:translate-y-[calc(50%-2px)] "

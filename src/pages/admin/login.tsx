@@ -1,8 +1,8 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import Bg from "~/components/background";
 import { header } from "~/styles/fonts";
 import { toast } from "sonner";
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken, signIn } from "next-auth/react";
 import { getServerSession } from 'next-auth';
 import { authOptions } from '~/server/auth';
@@ -20,7 +20,7 @@ const Login = ({
     handleSubmit,
     register,
     reset,
-    formState: { errors, isDirty, isValid, isSubmitting },
+    formState: { isDirty, isValid, isSubmitting },
   } = useForm<FormValues>({
     mode: "onSubmit",
     defaultValues: {

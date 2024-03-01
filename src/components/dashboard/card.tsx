@@ -16,13 +16,10 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({
   name,
-  major,
-  batch,
   motto,
   link,
   variant = "mwa-wm",
   photo,
-  nomor,
 }) => {
   const bg = variant === "k3m" ? "bg-teal-2" : "bg-red-1";
   const bg_dark =

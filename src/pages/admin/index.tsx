@@ -12,11 +12,11 @@ import {
   DialogTitle,
   DialogContent,
 } from "~/components/ui/dialog";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { type GetServerSideProps } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "~/server/auth";
 
-const Admin = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
@@ -157,5 +157,5 @@ export const getServerSideProps = (async (context) => {
       },
     },
   };
-}) satisfies GetServerSideProps<{}>;
+}) satisfies GetServerSideProps;
 export default Admin;
