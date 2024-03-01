@@ -3,10 +3,11 @@ FROM node:20-alpine AS base
 FROM base AS deps
 
 RUN apk add --no-cache libc6-compat
+USER nextjs
 WORKDIR /app
 
-COPY prisma ./
-COPY package.json package-lock.json* ./
+COPY --chown=nextjs:nodejs prisma ./prisma/
+COPY --chown=nextjs:nodejs package.json package-lock.json* ./
 
 RUN npm install --production --only=production
 RUN npm install sharp
@@ -15,6 +16,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+RUN npx prisma generate
 
 RUN SKIP_ENV_VALIDATION=1 npm run build
 
@@ -32,13 +35,11 @@ RUN chown nextjs:nodejs .next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-USER nextjs
 
 EXPOSE 8080
 ENV PORT=8080
 
 ENV HOSTNAME="0.0.0.0"
 
-RUN npm run prisma:generate
 
 CMD ["npm", "start"]
