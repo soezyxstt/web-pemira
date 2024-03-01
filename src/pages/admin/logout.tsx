@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const Logout = () => {
   useEffect(() => {
-    signOut({ callbackUrl: "/admin/login" });
+    void signOut({ callbackUrl: "/admin/login" });
   }, []);
 
   return (

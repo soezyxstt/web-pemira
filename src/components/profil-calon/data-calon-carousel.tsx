@@ -30,6 +30,7 @@ const DataCalonCarousel = ({ section }: { section: string }) => {
               visi={calon.visi}
               misi={calon.misi}
               linkPorto={calon.porto}
+              key={calon.name}
               linkIG={calon.ig}
             />
           ))}

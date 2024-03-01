@@ -1,14 +1,8 @@
-import { header } from "@fonts";
 import Image from "next/image";
-import { Card, CardContent } from "~/components/ui/card";
 import { CarouselItem } from "~/components/ui/carousel";
 import { k3m } from "~/data/k3m";
 
-type FotoCalonCarouselItemProps = {
-  section: string;
-};
-
-const FotoCalonCarouselItem = ({ section }: FotoCalonCarouselItemProps) => {
+const FotoCalonCarouselItem = () => {
   return (
     <>
       {k3m.map((calon, index: number) => (

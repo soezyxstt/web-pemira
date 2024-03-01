@@ -9,7 +9,7 @@ type PointDescProps = {
   no?: number;
 };
 
-const PointDesc = ({ section, tipe, bgDesc, point, no }: PointDescProps) => {
+const PointDesc = ({ section, tipe, bgDesc, point }: PointDescProps) => {
   const fontColor = section === "k3m" ? "text-black" : "text-brown-2";
 
   if (tipe === "visi") {

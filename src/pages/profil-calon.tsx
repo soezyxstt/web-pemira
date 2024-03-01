@@ -57,7 +57,7 @@ const ProfilCalon = () => {
               setApi={setApi}
             >
               <div className="rounded-xl ">
-                <FotoCalonCarousel section={"k3m"} />
+                <FotoCalonCarousel />
               </div>
               <CarouselPrevious
                 className="absolute -left-10 h-14 w-14 border-4 border-black"

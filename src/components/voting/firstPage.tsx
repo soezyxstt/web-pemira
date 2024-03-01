@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { k3m } from "~/data/k3m";
 import CardInfo from "./cardInfo";
 import Link from "next/link";
+import Image from 'next/image';
 
 const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   const searchParams = useSearchParams();
@@ -12,14 +13,14 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
       <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-[3vh] gap-3">
-        <img
+        <Image
           src="/texture/frame_copy.png"
           alt="bintang"
           width={100}
           height={75}
           className="absolute top-0 z-[1] h-full w-full"
         />
-        <img
+        <Image
           src="/texture/frame_kertas.png"
           alt="bintang"
           width={100}

@@ -7,11 +7,11 @@ import FirstPage from "~/components/voting/firstPage";
 import ThirdPage from "~/components/voting/thirdPage";
 import FadeIn from "~/components/fade-in";
 import Head from "next/head";
-import { InferGetServerSidePropsType, type GetServerSideProps } from "next";
+import { type GetServerSideProps } from "next";
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '~/server/auth';
 
-const Voting = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Voting = () => {
   const [page, setPage] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const backref = useRef<HTMLButtonElement>(null);
