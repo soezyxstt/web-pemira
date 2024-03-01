@@ -8,7 +8,7 @@ docker-compose.yml
 .gitignore
 .next
 prettier.config.js
-tailwind.config.js
+tailwind.config.ts
 .eslintrc
 .prettierrc
 .vscode
