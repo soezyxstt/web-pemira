@@ -57,7 +57,8 @@ env:
   PROJECT_ID: pemirakmitb # TODO: update Google Cloud project id
   GAR_LOCATION_DEV: "asia-northeast1" # TODO: update Artifact Registry location
   GAR_LOCATION_PROD: "asia-southeast1" # TODO: update Artifact Registry location
-  REPOSITORY: "web-pemira" # TODO: update Artifact Registry repository name
+  REPOSITORY_DEV: "web-pemira-staging" # TODO: update Artifact Registry repository name
+  REPOSITORY_PROD: "web-pemira" # TODO: update Artifact Registry repository name
   SERVICE: web-pemira # TODO: update Cloud Run service name
   REGION_DEV: "asia-northeast1" # TODO: update Cloud Run service region
   REGION_PROD: "asia-southeast1" # TODO: update Cloud Run service region
@@ -121,7 +122,7 @@ jobs:
           context: ./
           file: ./Dockerfile.${{ steps.branch.outputs.branch }}
           push: true
-          tags: ${{ env.GAR_LOCATION_DEV }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
+          tags: ${{ env.GAR_LOCATION_DEV }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_DEV }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
         if: ${{ steps.branch.outputs.branch == 'staging' }}
 
       - name: Build and Push Container Production
@@ -130,7 +131,7 @@ jobs:
           context: ./
           file: ./Dockerfile.${{ steps.branch.outputs.branch }}
           push: true
-          tags: ${{ env.GAR_LOCATION_PROD }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
+          tags: ${{ env.GAR_LOCATION_PROD }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_PROD }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
         if: ${{ steps.branch.outputs.branch == 'production' }}
 
       # END - Docker auth and build
@@ -142,7 +143,7 @@ jobs:
           service: ${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}
           region: ${{ env.REGION_DEV }}
           # NOTE: If using a pre-built image, update the image name here
-          image: ${{ env.GAR_LOCATION_DEV }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
+          image: ${{ env.GAR_LOCATION_DEV }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_DEV }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
           # NOTE: You can also set env variables here:
         if: ${{ steps.branch.outputs.branch == 'staging' }}
 
@@ -153,7 +154,7 @@ jobs:
           service: ${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}
           region: ${{ env.REGION_PROD }}
           # NOTE: If using a pre-built image, update the image name here
-          image: ${{ env.GAR_LOCATION_PROD }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
+          image: ${{ env.GAR_LOCATION_PROD }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY_PROD }}/${{ env.SERVICE }}-${{ steps.branch.outputs.branch }}:${{ github.sha }}
           # NOTE: You can also set env variables here:
         if: ${{ steps.branch.outputs.branch == 'production' }}
 
