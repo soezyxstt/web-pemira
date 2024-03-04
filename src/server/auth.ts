@@ -1,41 +1,50 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { type GetServerSidePropsContext } from "next";
 import {
   getServerSession,
   type DefaultSession,
   type NextAuthOptions,
-  type DefaultUser,
 } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "~/server/db";
-import { compare } from "bcrypt-ts"
+import { compare } from "bcrypt-ts";
+import { TRPCError } from "@trpc/server";
 
-import { env } from "~/env";
-import { TRPCError } from '@trpc/server';
-
+/**
+ * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
+ * object and keep type safety.
+ *
+ * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
+ */
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    user: {
+    user: DefaultSession["user"] & {
       id: string;
-      // ...other properties
-      nim: string;
-    } & DefaultSession["user"];
+      username: string;
+    };
   }
 
-  interface User extends DefaultUser {
-    // ...other properties
-    nim: string;
+  interface User {
+    id: string;
+    username: string;
   }
+
+  // interface User {
+  //   // ...other properties
+  //   // role: UserRole;
+  // }
 }
 
+/**
+ * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
+ *
+ * @see https://next-auth.js.org/configuration/options
+ */
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
   jwt: {
-    // The maximum age of the NextAuth.js issued JWT in seconds.
-    // Defaults to `session.maxAge`.
-    maxAge: env.SESSION_MAXAGE,
+    maxAge: 2 * 24 * 60 * 60,
   },
   callbacks: {
     session: ({ session, token }) => ({
@@ -43,63 +52,57 @@ export const authOptions: NextAuthOptions = {
       user: {
         ...session.user,
         id: token.id,
-        nim: token.nim,
+        username: token.username,
       },
     }),
     jwt: ({ token, user }) => {
       if (user) {
         token.id = user.id;
-        token.nim = user.nim;
+        token.username = user.username;
       }
       return token;
     },
   },
-  adapter: PrismaAdapter(prisma),
+  
   providers: [
     CredentialsProvider({
-      id: "credentials",
       name: "Credentials",
       credentials: {
-        nim: {
-          label: "NIM",
-          type: "text",
-          placeholder: "13122080",
-        },
-        password: {
-          label: "Password",
-          type: "password",
-          placeholder: "password",
-        },
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, _req) {
         if (!credentials) {
           throw new TRPCError({
             code: "BAD_REQUEST",
-            message: "Credentials not provided",
+            message: "Credentials tidak ditemukan",
+          });
+        }
+        const { username, password } = credentials;
+
+        if (!username || !password) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "Username dan password tidak ditemukan",
           });
         }
 
-        const { nim, password } = credentials;
-        if (!nim || !password) {
-          throw new TRPCError({
-            code: "BAD_REQUEST",
-            message: "NIM or password not provided",
-          });
-        }
-        const user = await prisma.user.findUnique({
+        // ini masih asumsi database tabel User ada id, username, password
+        const user = await prisma.admin.findUnique({
           where: {
-            NIM: nim,
+            username: username,
           },
         });
+
         if (!user) {
           throw new TRPCError({
             code: "BAD_REQUEST",
             message: "Akun tidak ditemukan",
           });
         }
-        console.log("user:", user);
 
         const isValid = await compare(password, user.passwordHash);
+
         if (!isValid) {
           throw new TRPCError({
             code: "BAD_REQUEST",
@@ -109,14 +112,32 @@ export const authOptions: NextAuthOptions = {
 
         return {
           id: user.id,
-          nim: user.NIM,
-          name: user.name,
+          username: user.username,
         };
       },
     }),
+
+    /**
+     * ...add more providers here.
+     *
+     * Most other providers require a bit more work than the Discord provider. For example, the
+     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
+     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
+     *
+     * @see https://next-auth.js.org/providers/github
+     */
   ],
+  pages: {
+    signIn: "/login",
+    signOut: "/",
+  },
 };
 
+/**
+ * Wrapper for `getServerSession` so that you don't need to import the `authOptions` in every file.
+ *
+ * @see https://next-auth.js.org/configuration/nextjs
+ */
 export const getServerAuthSession = (ctx: {
   req: GetServerSidePropsContext["req"];
   res: GetServerSidePropsContext["res"];

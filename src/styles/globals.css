@@ -4,7 +4,11 @@
 
 @layer components {
   .dusty-bg {
-    @apply bg-[url('../../public/texture/dusty.png')] bg-cover bg-center relative;
+    @apply bg-[url('../../public/texture/dusty-2.png')] bg-cover bg-center relative;
+  }
+
+  .text-custom {
+    @apply text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-center text-4xl;
   }
 } 
 
@@ -69,15 +73,6 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 
