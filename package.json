@@ -11,6 +11,7 @@
     "prisma:generate": "prisma generate",
     "lint": "next lint",
     "start": "next start",
+    "postinstall": "prisma generate",
     "docker:build": "docker compose -f docker-compose.dev.yml build",
     "docker:up": "docker compose -f docker-compose.dev.yml up",
     "dockerize": "docker compose -f docker-compose.dev.yml up --build"

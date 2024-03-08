@@ -84,6 +84,7 @@ export const inputNimRouter = createTRPCRouter({
   changeToken: protectedProcedure
     .input(z.object({ nim: z.string() }))
     .mutation(async ({ ctx, input }) => {
+      
       const mahasiswa = await ctx.db.mahasiswa.findFirst({
         where: {
           nim: input.nim,
