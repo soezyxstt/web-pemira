@@ -14,7 +14,7 @@ const ThirdPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
         className,
       )}
     >
-      <h1 className="text-4xl">apakah sudah yakin dengan pilihan anda?</h1>
+      <h1 className="text-4xl">Apakah sudah yakin dengan pilihan Anda?</h1>
       <h1 className="text-4xl text-blue-5 drop-shadow-xl">k3m</h1>
       <div className="mt-8 grid w-full flex-1 grid-cols-4 gap-8 px-32">
         {k3m.map((nomor, index) => {
@@ -38,6 +38,7 @@ const ThirdPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
             <Card
               href='#'
               order={index}
+              foto={data[parseInt(nomor) - 1]?.photo}
               nama={data[parseInt(nomor) - 1]?.name}
               variant="blue"
               key={index}

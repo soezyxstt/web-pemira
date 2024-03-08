@@ -19,8 +19,8 @@ const Navbar = () => {
     <nav
       className={
         isExpanded
-          ? "z-[999] flex h-16 items-center justify-between bg-red-5 pl-4 pr-6 text-cream md:pl-8 md:pr-10"
-          : "z-[999] flex h-16 items-center justify-between bg-red-5 pl-4 pr-6 text-cream md:pl-8 md:pr-10"
+          ? "z-[999] flex !h-16 items-center justify-between bg-red-5 pl-4 pr-6 text-cream md:pl-8 md:pr-10"
+          : "z-[999] flex !h-16 items-center justify-between bg-red-5 pl-4 pr-6 text-cream md:pl-8 md:pr-10"
       }
     >
       <ul

@@ -51,7 +51,7 @@ const Login = ({
   };
   
   return (
-    <div className="dusty-bg flex flex-col items-center justify-center">
+    <div className="dusty-bg flex flex-col items-center justify-center min-h-[calc(100dvh-4rem)]">
       <Head>
         <title>PEMIRA - Admin Login</title>
       </Head>
@@ -62,7 +62,7 @@ const Login = ({
       >
         <h1 className={`${header.className} text-custom`}>Admin - Login</h1>
         <div className="w-60 space-y-4 *:w-full">
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken ?? ""} />
           <input
             type="text"
             placeholder="username"
@@ -104,7 +104,7 @@ export const getServerSideProps = async (
   }
 
   return {
-    props: { csrfToken },
+    props: { csrfToken: csrfToken ?? null },
   };
 };
 

@@ -6,36 +6,32 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_PRISMA_URL") // uses a direct connection
 }
 
 model Admin {
-  id           String @id @default(uuid())
-  username     String @unique
+  id           String    @id @default(uuid())
+  username     String    @unique
   passwordHash String
+  votes        VoteK3M[]
 }
 
 model Mahasiswa {
-  id           String   @id @default(uuid())
-  NIM          String   @unique
-  state        Boolean  @default(false)
-  token        String   @unique
-}
-
-model VoteMWAWM {
-  id String @unique @default(uuid())
-  pil_1 String?
-  pil_2 String?
-  pil_3 String?
+  id    String  @id @default(uuid())
+  nim   String  @unique
+  state Boolean @default(false)
+  token String? @unique
+  voted Boolean @default(false)
 }
 
 model VoteK3M {
-  id String @unique @default(uuid())
-  pil_1 String?
-  pil_2 String?
-  pil_3 String?
+  id      String  @unique @default(uuid())
+  pil_1   String
+  pil_2   String?
+  pil_3   String?
+  pil_4   String?
+  admin   Admin   @relation(fields: [adminId], references: [id])
+  adminId String
 }
-
-
