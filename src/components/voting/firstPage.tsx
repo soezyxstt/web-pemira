@@ -1,24 +1,21 @@
 import { type HTMLAttributes } from "react";
 import Card from "./cardSelect";
 import { cn } from "~/lib/utils";
-import { useSearchParams } from "next/navigation";
 import { k3m } from "~/data/k3m";
 import CardInfo from "./cardInfo";
 import Link from "next/link";
 import Image from 'next/image';
 
 const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
-  const searchParams = useSearchParams();
-  const mwa_wm = searchParams.get("mwa_wm");
   return (
     <div className={cn("flex w-[calc(100vw-6rem)] gap-8", className)}>
       <div className="relative flex w-[35%] flex-col items-center justify-evenly rounded-lg border-[4px] border-black px-8 py-[3vh] gap-3">
         <Image
           src="/texture/frame_copy.png"
           alt="bintang"
-          width={100}
-          height={75}
-          className="absolute top-0 z-[1] h-full w-full"
+          width={1500}
+          height={1000}
+          className="absolute top-0 z-[1] h-full w-full rounded"
         />
         <Image
           src="/texture/frame_kertas.png"
@@ -47,7 +44,7 @@ const FirstPage = ({ className }: HTMLAttributes<HTMLDivElement>) => {
       </div>
       <div className="relative flex flex-1 flex-col items-center gap-6 rounded-lg border-[4px] border-blue-5 bg-brown-1 px-10 py-6">
         <Link
-          href={`?${new URLSearchParams([["mwa_wm", mwa_wm ?? ""]])}`}
+          href={`?${new URLSearchParams([["k3m", ""]])}`}
           className={cn(
             "absolute left-6 top-6 rounded-full border-[2px] border-navy bg-red-3 px-4 text-brown-2 transition-colors hover:drop-shadow-xl",
           )}

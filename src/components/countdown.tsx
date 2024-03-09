@@ -22,7 +22,7 @@ const Countdown = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(timeLeft - 1);
+      setTimeLeft(prev => prev - 1);
     }, 1000);
     return () => clearInterval(interval);
   }, [timeLeft]);

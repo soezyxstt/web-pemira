@@ -38,7 +38,7 @@ const ProfilCalon = () => {
   const data = k3m[no - 1];
 
   return (
-    <div className="justify-content dusty-bg relative w-full items-center pb-16">
+    <div className="justify-content dusty-bg relative w-full flex-1 items-center pb-16">
       <Bg />
       <div className="">
         <div

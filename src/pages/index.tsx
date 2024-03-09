@@ -13,7 +13,7 @@ const Countdown = dynamic(() => import("~/components/countdown"), {
 
 export default function Home() {
   return (
-    <div className="dusty-bg flex h-screen w-full snap-y snap-mandatory flex-col items-center justify-center [&_.ch]:px-[10vw]">
+    <div className="dusty-bg flex h-screen w-full flex-1 snap-y snap-mandatory flex-col items-center justify-center [&_.ch]:px-[10vw]">
       <Bg className="top-0 h-[calc(100dvh)] bg-gradient-to-b from-cream from-85% to-brown-1" />
       <Bg className="top-[calc(100dvh)] h-dvh bg-brown-1" />
       <Bg className="top-[calc(200dvh)] h-dvh bg-brown-1" />
@@ -91,24 +91,21 @@ export default function Home() {
             alt="logo"
             width={1800}
             height={1800}
-            objectFit="contain"
-            className="absolute bottom-0 max-h-[40vh] md:static md:max-w-[60vw]"
+            className="absolute  object-contain bottom-0 max-h-[40vh] md:static md:max-w-[60vw]"
           />
           <Image
             src="/bintang/5.png"
             alt=""
             width={800}
             height={800}
-            objectFit="contain"
-            className="absolute left-1/4 top-1/4 h-14 w-14 -rotate-12 md:h-24 md:w-24"
+            className="absolute object-contain  left-1/4 top-1/4 h-14 w-14 -rotate-12 md:h-24 md:w-24"
           />
           <Image
             src="/bintang/11.png"
             alt=""
             width={800}
             height={800}
-            objectFit="contain"
-            className="absolute right-1/4 top-1/4 h-14 w-14 rotate-12 md:h-24 md:w-24"
+            className="absolute object-contain  right-1/4 top-1/4 h-14 w-14 rotate-12 md:h-24 md:w-24"
           />
         </div>
       </div>

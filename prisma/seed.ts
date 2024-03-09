@@ -10,6 +10,21 @@ const admin = [
   },
 ];
 
+const mahasiswa = [
+  {
+    nim: "13122080",
+    token: "AS67DD",
+  },
+  {
+    nim: "13122081",
+    token: "AS2162",
+  },
+  {
+    nim: "13122082",
+    token: "123SAD",
+  },
+]
+
 async function main() {
   const admins = await prisma.admin.findMany();
   if (admins.length > 0) {
@@ -26,6 +41,25 @@ async function main() {
       data: {
         username: admin.username,
         passwordHash: await hash(admin.password, 10),
+      },
+    });
+  });
+
+  const mahasiswas = await prisma.mahasiswa.findMany();
+  if (mahasiswas.length > 0) {
+    mahasiswas.forEach(async (mahasiswa) => {
+      await prisma.mahasiswa.delete({
+        where: {
+          id: mahasiswa.id,
+        },
+      });
+    });
+  }
+  mahasiswa.forEach(async (mahasiswa) => {
+    await prisma.mahasiswa.create({
+      data: {
+        nim: mahasiswa.nim,
+        token: mahasiswa.token,
       },
     });
   });

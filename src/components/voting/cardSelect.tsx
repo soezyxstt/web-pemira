@@ -75,7 +75,6 @@ const Card = ({
             isK3M
               ? [
                   ["k3m", link],
-                  ["mwa_wm", mwawm ?? ""],
                 ]
               : [
                   ["mwa_wm", link],
@@ -118,7 +117,6 @@ const Card = ({
           isK3M
             ? [
                 ["k3m", link],
-                ["mwa_wm", mwawm ?? ""],
               ]
             : [
                 ["mwa_wm", link],

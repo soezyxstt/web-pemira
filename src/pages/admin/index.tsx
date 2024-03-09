@@ -15,26 +15,61 @@ import {
 import { type GetServerSideProps } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "~/server/auth";
+import { api } from "~/utils/api";
+import { toast } from "sonner";
+import { Toaster } from "~/components/ui/sonner";
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [token, setToken] = useState("");
+  const [nim, setNim] = useState("");
+  const [time, setTime] = useState(0);
+  const changeState = api.inputNim.changeState.useMutation();
+  const activateNIM = api.inputNim.changeToken.useMutation({
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: (data) => {
+      toast.success(`Berhasil mendaftarkan NIM: ${data.nim}`);
+      setTime(90);
+      setNim(data.nim);
+      setToken(data.token ?? "");
+      setIsOpen(true);
+
+      const interval = setInterval(() => {
+        setTime((prev) => prev - 1);
+      }, 1000);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        setIsOpen(false);
+        changeState.mutate({ nim: data.nim, state: false });
+      }, 90000);
+    },
+  });
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<{ nim: string }>();
   const onSubmit: SubmitHandler<{ nim: string }> = (data, e) => {
     e?.preventDefault();
-    console.log(data);
-    setIsOpen(true);
+
+    activateNIM.mutate({
+      nim: data.nim,
+    });
+
+    reset();
   };
 
   return (
     <FadeIn>
       <Head>
-        <title>Admin - PEMIRA ITB</title>
+        <title>ADMIN - PEMIRA ITB</title>
       </Head>
+      <Toaster />
       <div className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-cream py-8">
         <div className="absolute z-0 h-screen w-full bg-[url('../../public/logo.png')] bg-contain bg-center bg-no-repeat opacity-10"></div>
         <div className="relative">
@@ -88,7 +123,7 @@ const Admin = () => {
                   : `${body.className} z-10 w-full rounded-full bg-teal-3/95 py-2 text-brown-2 outline outline-1 outline-navy transition-colors hover:bg-teal-3`
               }
             >
-              SUBMIT
+              {isSubmitting ? "SUBMITTING.." : "SUBMIT"}
             </button>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogContent
@@ -105,7 +140,11 @@ const Admin = () => {
                   <div
                     className={`text-2xl text-red-700 text-stroke-width-[0.3px] text-stroke-color-navy`}
                   >
-                    03:42
+                    {`${Math.floor(time / 60)
+                      .toString()
+                      .padStart(2, "0")}:${(time % 60)
+                      .toString()
+                      .padStart(2, "0")}`}
                   </div>
                   <Separator className=" bg-brown-4" />
                 </DialogHeader>
@@ -113,11 +152,11 @@ const Admin = () => {
                   <div className="col-span-3 md:col-span-2">NIM</div>
                   <div className="">:</div>
                   <div className=""></div>
-                  <div className="col-span-5 md:col-span-6">13122080</div>
+                  <div className="col-span-5 md:col-span-6">{nim}</div>
                   <div className={`col-span-3 md:col-span-2`}>Token</div>
                   <div className="">:</div>
                   <div className=""></div>
-                  <div className={`col-span-5 md:col-span-6`}>AS67DD</div>
+                  <div className={`col-span-5 md:col-span-6`}>{token}</div>
                 </div>
               </DialogContent>
             </Dialog>
