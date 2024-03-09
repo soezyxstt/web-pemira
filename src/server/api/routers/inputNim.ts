@@ -1,4 +1,4 @@
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import { adminProcedure, createTRPCRouter, protectedProcedure, votingProcedure } from "~/server/api/trpc";
 import { z } from "zod";
 import { TRPCClientError } from "@trpc/client";
 
@@ -54,7 +54,7 @@ export const inputNimRouter = createTRPCRouter({
       };
     }),
 
-  changeState: protectedProcedure
+  changeState: adminProcedure
     .input(z.object({ nim: z.string(), state: z.boolean() }))
     .mutation(async ({ ctx, input }) => {
       try {
@@ -81,7 +81,7 @@ export const inputNimRouter = createTRPCRouter({
       }
     }),
 
-  changeToken: protectedProcedure
+  changeToken: adminProcedure
     .input(z.object({ nim: z.string() }))
     .mutation(async ({ ctx, input }) => {
       
@@ -132,7 +132,7 @@ export const inputNimRouter = createTRPCRouter({
       }
     }),
 
-  vote: protectedProcedure
+  vote: votingProcedure
     .input(
       z.object({
         nim: z.string(),

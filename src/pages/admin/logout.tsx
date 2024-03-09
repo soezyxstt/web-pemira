@@ -7,7 +7,7 @@ const Logout = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center text-xl text-navy">
+    <div className="flex items-center justify-center text-xl text-navy flex-1 bg-cream">
       Logging Out...
     </div>
   );
