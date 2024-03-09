@@ -187,7 +187,7 @@ export const inputNimRouter = createTRPCRouter({
           },
         });
       } catch (e) {
-        throw new TRPCClientError("Gagal melakukan vote!");
+        throw new TRPCClientError("Gagal mengupdate data mahasiswa!");
       }
     }),
 });
