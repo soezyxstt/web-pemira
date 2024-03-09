@@ -180,10 +180,10 @@ Admin.getLayout = (page: ReactNode) => page;
 export const getServerSideProps = (async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (!session?.user.username) {
+  if (session?.user.role !== "Administrator") {
     return {
       redirect: {
-        destination: "/",
+        destination: "/admin/login",
         permanent: false,
       },
     };

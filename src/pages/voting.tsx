@@ -238,7 +238,7 @@ const Voting = () => {
 export const getServerSideProps = (async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (!session?.user.username) {
+  if (session?.user.role !== "Voting") {
     return {
       redirect: {
         destination: "/",
