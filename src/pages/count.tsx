@@ -18,59 +18,59 @@ import {
 
 const DATAS = [
   {
-    value: "voter1",
+    value: "1",
     label: "Zona GKU Barat",
   },
   {
-    value: "voter2",
+    value: "2",
     label: "Zona GKU Timur",
   },
   {
-    value: "voter3",
+    value: "3",
     label: "Zona Labtek X & XI",
   },
   {
-    value: "voter4",
+    value: "4",
     label: "Zona Aula Timur",
   },
   {
-    value: "voter5",
+    value: "5",
     label: "Zona Labtek I",
   },
   {
-    value: "voter6",
+    value: "6",
     label: "Zona Gedung Energi",
   },
   {
-    value: "voter7",
+    value: "7",
     label: "Zona Labtek Kembar",
   },
   {
-    value: "voter8",
+    value: "8",
     label: "Zona Gedung SBM",
   },
   {
-    value: "voter9",
+    value: "9",
     label: "Zona Sunken Court",
   },
   {
-    value: "voter10",
+    value: "10",
     label: "Zona GKU 2",
   },
   {
-    value: "voter11",
+    value: "11",
     label: "Zona Koica",
   },
   {
-    value: "voter12",
+    value: "12",
     label: "Zona Asrama",
   },
   {
-    value: "voter13",
+    value: "13",
     label: "Zona Gedung C",
   },
   {
-    value: "voter14",
+    value: "14",
     label: "Zona Cirebon",
   },
 ];

@@ -7,7 +7,7 @@ const FaInstagram = ({ linkIG }: { linkIG: string }) => {
     <div /*logo ig */
       className="relative ml-1 flex items-center justify-center aspect-square "
     >
-      <Link href={linkIG} download={linkIG} target='_blank' className='h-full w-full text-brown-3 hover:text-brown-3/90 text-5xl md:text-6xl'>
+      <Link href={linkIG} aria-label='instagram' download={linkIG} target='_blank' className='h-full w-full text-brown-3 hover:text-brown-3/90 text-5xl md:text-6xl'>
         <Icon />
       </Link>
     </div>

@@ -1,8 +1,6 @@
 import {
-  adminProcedure,
   createTRPCRouter,
   protectedProcedure,
-  votingProcedure,
 } from "~/server/api/trpc";
 import { z } from "zod";
 import { TRPCClientError } from "@trpc/client";
@@ -38,46 +36,43 @@ export const countRouter = createTRPCRouter({
   getQuickCount: protectedProcedure
     .input(z.object({ tps: z.string().optional() }))
     .query(async ({ ctx, input }) => {
+      const query = [
+        `voter${Number(input.tps) * 2 - 1}`,
+        `voter${Number(input.tps) * 2}`,
+      ];
+
+      const where = input.tps ? {
+        OR: query.map((voter) => ({
+          admin: {
+            username: voter,
+          }
+        }))
+      } : {};
+
       const pil_1 = await ctx.db.voteK3M.groupBy({
         by: ["pil_1"],
-        where: {
-          admin: {
-            username: input.tps,
-          },
-        },
+        where: where,
         _count: {
           pil_1: true
         }
       });
       const pil_2 = await ctx.db.voteK3M.groupBy({
         by: ["pil_2"],
-        where: {
-          admin: {
-            username: input.tps,
-          },
-        },
+        where: where,
         _count: {
           pil_2: true
         }
       });
       const pil_3 = await ctx.db.voteK3M.groupBy({
         by: ["pil_3"],
-        where: {
-          admin: {
-            username: input.tps,
-          },
-        },
+        where: where,
         _count: {
           pil_3: true
         }
       });
       const pil_4 = await ctx.db.voteK3M.groupBy({
         by: ["pil_4"],
-        where: {
-          admin: {
-            username: input.tps,
-          },
-        },
+        where: where,
         _count: {
           pil_4: true
         }
