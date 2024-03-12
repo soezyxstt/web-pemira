@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 import { inputNimRouter } from "~/server/api/routers/inputNim";
+import { countRouter } from './routers/count';
 
 /**
  * This is the primary router for your server.
@@ -8,6 +9,7 @@ import { inputNimRouter } from "~/server/api/routers/inputNim";
  */
 export const appRouter = createTRPCRouter({
   inputNim: inputNimRouter,
+  count: countRouter
 });
 
 // export type definition of API
