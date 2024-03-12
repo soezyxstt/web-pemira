@@ -10,7 +10,7 @@ import {
   LabelList,
   Label,
 } from "recharts";
-import { header } from '~/styles/fonts';
+import { header } from "~/styles/fonts";
 
 const QuickCount = ({
   data,
@@ -61,7 +61,7 @@ const QuickCount = ({
           />
         </YAxis>
         <Tooltip content={CustomTooltip} />
-        <Legend />
+        <Legend wrapperStyle={{fontSize: 14}} />
         {["Pilihan 1", "Pilihan 2", "Pilihan 3", "Pilihan 4"].map(
           (pil, index) => (
             <Bar key={pil} dataKey={pil} fill={COLORS[index]} name={pil}>
@@ -84,9 +84,7 @@ const QuickCount = ({
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active) {
     return (
-      <div
-        className='bg-cream text-red-4 p-4 rounded-md shadow-md text-base border border-red-5 font-normal font-mono'
-      >
+      <div className="rounded-md border border-red-5 bg-cream p-4 font-mono text-base font-normal text-red-4 shadow-md">
         <p className={`${header.className}`}>{`${label}`}</p>
         <div className="h-px w-full bg-black"></div>
         <p>{`${payload[0]?.name} : ${payload[0]?.value}`}</p>
@@ -98,6 +96,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   }
 
   return null;
-}
+};
 
 export default QuickCount;
