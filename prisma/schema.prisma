@@ -33,11 +33,12 @@ model Mahasiswa {
 }
 
 model VoteK3M {
-  id      String  @unique @default(uuid())
+  id      String   @unique @default(uuid())
   pil_1   String
   pil_2   String?
   pil_3   String?
   pil_4   String?
-  admin   Admin   @relation(fields: [adminId], references: [id])
+  created DateTime @default(now())
+  admin   Admin    @relation(fields: [adminId], references: [id])
   adminId String
 }

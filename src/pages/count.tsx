@@ -161,11 +161,11 @@ const Count = () => {
 
   return (
     <div className="flex flex-1 flex-col items-center bg-cream text-xl text-navy">
-      <h1 className={`text-custom md:mb-10 md:mt-14 ${header.className}`}>
+      <h1 className={`text-custom md:mb-10 md:mt-14 mb-6 mt-8 ${header.className}`}>
         Perolehan Suara Sementara
       </h1>
-      <div className="flex gap-20">
-        <div className="flex h-[60vh] w-[25vw] flex-col items-center">
+      <div className="flex gap-20 flex-col-reverse md:flex-row">
+        <div className="flex h-[60vh] md:w-[25vw] w-[80vw] flex-col items-center">
           <Select onValueChange={setPil} defaultValue="1">
             <SelectTrigger className="w-[200px] border-2 border-red-4 bg-cream shadow">
               <SelectValue placeholder="Pilihan ke-" />
@@ -181,7 +181,7 @@ const Count = () => {
           </Select>
           <PieCount data={dataPerCalonPie()} />
         </div>
-        <div className="flex h-[60vh] w-[50vw] flex-1 flex-col items-center gap-4">
+        <div className="flex h-[60vh] md:w-[50vw] w-[80vw] flex-1 flex-col items-center gap-4">
           <TPS query={query} setQuery={setQuery} />
           <QuickCount data={dataPerCalon} />
         </div>
