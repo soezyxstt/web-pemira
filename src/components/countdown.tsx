@@ -8,13 +8,13 @@ const Countdown = () => {
     Math.floor((electionDate.getTime() - now.getTime()) / 1000),
   );
   const getTimeLeft = {
-    days: Math.floor(timeLeft / (60 * 60 * 24))
+    days: (Math.floor(timeLeft / (60 * 60 * 24)) >= 0 ? Math.floor(timeLeft / (60 * 60 * 24)) : 0)
       .toString()
       .padStart(2, "0"),
-    hours: Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60))
+    hours: (Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60)) >= 0 ? Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60)) : 0)
       .toString()
       .padStart(2, "0"),
-    minutes: Math.floor((timeLeft % (60 * 60)) / 60)
+    minutes: (Math.floor((timeLeft % (60 * 60)) / 60) >= 0 ? Math.floor((timeLeft % (60 * 60)) / 60) : 0)
       .toString()
       .padStart(2, "0"),
     seconds: Math.floor(timeLeft % 60),

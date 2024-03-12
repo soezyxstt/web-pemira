@@ -37,7 +37,11 @@ export default function Home() {
             {"#GERAKINKLUSIF"}
           </h4>
           <Countdown />
-          <div className="text-red-4">until vote start</div>
+          <div className="text-red-4">
+            {new Date() >= new Date("2024-03-13T07:00:00+07:00")
+              ? "PEMIRA sedang berlangsung!"
+              : "sampai vote dimulai!"}
+          </div>
         </div>
       </div>
       <div className="w-full snap-center">
@@ -45,11 +49,11 @@ export default function Home() {
           className={`ch isolate flex min-h-dvh w-full flex-col justify-start gap-6 text-center`}
         >
           <h1
-            className={`text-custom md:text-6xl ${header.className} md:pt-32 pt-12`}
+            className={`text-custom md:text-6xl ${header.className} pt-12 md:pt-32`}
           >
             Linimasa
           </h1>
-          <div className="flex md:items-center justify-center flex-1 h-full pb-20 mt-12 md:mt-0">
+          <div className="mt-12 flex h-full flex-1 justify-center pb-20 md:mt-0 md:items-center">
             <Timeline />
           </div>
         </div>
@@ -91,21 +95,21 @@ export default function Home() {
             alt="logo"
             width={1800}
             height={1800}
-            className="absolute  object-contain bottom-0 max-h-[40vh] md:static md:max-w-[60vw]"
+            className="absolute  bottom-0 max-h-[40vh] object-contain md:static md:max-w-[60vw]"
           />
           <Image
             src="/bintang/5.png"
             alt=""
             width={800}
             height={800}
-            className="absolute object-contain  left-1/4 top-1/4 h-14 w-14 -rotate-12 md:h-24 md:w-24"
+            className="absolute left-1/4  top-1/4 h-14 w-14 -rotate-12 object-contain md:h-24 md:w-24"
           />
           <Image
             src="/bintang/11.png"
             alt=""
             width={800}
             height={800}
-            className="absolute object-contain  right-1/4 top-1/4 h-14 w-14 rotate-12 md:h-24 md:w-24"
+            className="absolute right-1/4  top-1/4 h-14 w-14 rotate-12 object-contain md:h-24 md:w-24"
           />
         </div>
       </div>
