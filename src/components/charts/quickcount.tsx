@@ -10,6 +10,7 @@ import {
   LabelList,
   Label,
 } from "recharts";
+import { useMediaQuery } from '~/hook/useMediaQuery';
 import { header } from "~/styles/fonts";
 
 const QuickCount = ({
@@ -24,11 +25,12 @@ const QuickCount = ({
   }[];
 }) => {
   const COLORS = ["#d2391a", "#046977", "#db8a1b", "#3997b1"];
+  const isDekstop = useMediaQuery("(min-width: 780px)");
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height={isDekstop ? "100%" : 500}>
       <BarChart
         width={500}
-        height={300}
+        height={500}
         data={data}
         margin={{
           top: 5,
