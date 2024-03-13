@@ -23,7 +23,7 @@ const Pemira = ({
 }: AppPropsWithLayout) => {
   if (Component.getLayout) {
     return Component.getLayout(
-      <SessionProvider session={session}>
+      <SessionProvider session={session} refetchOnWindowFocus>
         <Component {...pageProps} />
       </SessionProvider>,
     );

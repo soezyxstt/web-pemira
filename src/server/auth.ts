@@ -30,11 +30,6 @@ declare module "next-auth" {
     username: string;
     role?: Role;
   }
-
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
 }
 
 /**
@@ -45,9 +40,11 @@ declare module "next-auth" {
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
+    updateAge: 0, // always update the session
+    maxAge: 12 * 60 * 60, // 12 hours
   },
   jwt: {
-    maxAge: 2 * 24 * 60 * 60,
+    maxAge: 12 * 60 * 60, // 12 hours
   },
   callbacks: {
     session: ({ session, token }) => ({
@@ -68,7 +65,7 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
-  
+
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -92,7 +89,6 @@ export const authOptions: NextAuthOptions = {
           });
         }
 
-        // ini masih asumsi database tabel User ada id, username, password
         const user = await prisma.admin.findUnique({
           where: {
             username: username,
