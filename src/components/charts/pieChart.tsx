@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import { header } from "~/styles/fonts";
 
-const PieCount = ({ data }: { data: { name: string; value: number }[] }) => {
+const PieCount = ({ data }: { data: { name: string; value: number, real: number }[] }) => {
   const COLORS = ["#3997b1", "#d2391a", "#046977", "#eda537"];
 
   return (
@@ -61,7 +61,7 @@ const CustomTooltip = ({ active, payload }: any) => {
     return (
       <div className="flex items-center gap-4 rounded-md border border-red-5 bg-cream p-2 font-mono text-base text-red-4 shadow-md">
         <p className={`${header.className}`}>{payload[0]?.payload?.name}</p>
-        <p>{`${payload[0]?.value ?? ""}%`}</p>
+        <p>{`${payload[0]?.payload?.real ?? ""}`}</p>
       </div>
     );
   }

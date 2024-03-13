@@ -16,6 +16,8 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 
+const allowed = ["adiadmin", "adivoter"];
+
 const DATAS = [
   {
     value: "1",
@@ -112,65 +114,64 @@ const Count = () => {
     },
   ];
   const dataPerCalonPie = () => {
-    let pil_ = null
+    let pil_ = null;
 
     if (pil === "1") {
-      pil_ = data?.pil_1
-    }
-    else if (pil === "2") {
-      pil_ = data?.pil_2
-    }
-    else if (pil === "3") {
-      pil_ = data?.pil_3
-    }
-    else {
-      pil_ = data?.pil_4
+      pil_ = data?.pil_1;
+    } else if (pil === "2") {
+      pil_ = data?.pil_2;
+    } else if (pil === "3") {
+      pil_ = data?.pil_3;
+    } else {
+      pil_ = data?.pil_4;
     }
 
     return [
       {
         name: "Nabiel",
         value:
-          Math.round(
-            ((pil_?.nabiel ?? 0) / (pil_?.total ?? 1)) * 10000,
-          ) / 100 ?? 0,
+          Math.round(((pil_?.nabiel ?? 0) / (pil_?.total ?? 1)) * 10000) /
+            100 ?? 0,
+        real: pil_?.nabiel ?? 0,
       },
       {
         name: "Fidela",
         value:
-          Math.round(
-            ((pil_?.fidela ?? 0) / (pil_?.total ?? 1)) * 10000,
-          ) / 100 ?? 0,
+          Math.round(((pil_?.fidela ?? 0) / (pil_?.total ?? 1)) * 10000) /
+            100 ?? 0,
+        real: pil_?.fidela ?? 0,
       },
       {
         name: "Daniel",
         value:
-          Math.round(
-            ((pil_?.daniel ?? 0) / (pil_?.total ?? 1)) * 10000,
-          ) / 100 ?? 0,
+          Math.round(((pil_?.daniel ?? 0) / (pil_?.total ?? 1)) * 10000) /
+            100 ?? 0,
+        real: pil_?.daniel ?? 0,
       },
       {
         name: "Kotak Kosong",
         value:
-          Math.round(
-            ((pil_?.kotakKosong ?? 0) / (pil_?.total ?? 1)) * 10000,
-          ) / 100 ?? 0,
+          Math.round(((pil_?.kotakKosong ?? 0) / (pil_?.total ?? 1)) * 10000) /
+            100 ?? 0,
+        real: pil_?.kotakKosong ?? 0,
       },
     ];
-  }
+  };
 
   return (
-    <div className="flex flex-1 flex-col items-center bg-cream text-xl text-navy">
-      <h1 className={`text-custom md:mb-10 md:mt-14 mb-6 mt-8 ${header.className}`}>
+    <div className="flex flex-1 flex-col items-center md:justify-center bg-cream text-xl text-navy pb-10">
+      <h1
+        className={`text-custom mb-6 mt-8 md:mb-10 md:m-0 text-3xl md:text-4xl px-8 ${header.className}`}
+      >
         Perolehan Suara Sementara
       </h1>
-      <div className="flex gap-20 flex-col-reverse md:flex-row">
-        <div className="flex h-[60vh] md:w-[25vw] w-[80vw] flex-col items-center">
+      <div className="flex flex-col gap-20 md:flex-row items-center md:items-start">
+        <div className="flex h-[45vh] w-[80vw] flex-col items-center md:h-[60vh] md:w-[25vw]">
           <Select onValueChange={setPil} defaultValue="1">
             <SelectTrigger className="w-[200px] border-2 border-red-4 bg-cream shadow">
               <SelectValue placeholder="Pilihan ke-" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="border-2 border-red-4 bg-cream">
               <SelectGroup>
                 <SelectItem value="1">Pilihan 1</SelectItem>
                 <SelectItem value="2">Pilihan 2</SelectItem>
@@ -181,8 +182,11 @@ const Count = () => {
           </Select>
           <PieCount data={dataPerCalonPie()} />
         </div>
-        <div className="flex h-[60vh] md:w-[50vw] w-[80vw] flex-1 flex-col items-center gap-4">
+        <div className="flex w-[90vw] flex-1 flex-col items-center gap-4 md:h-[60vh] md:w-[50vw]">
           <TPS query={query} setQuery={setQuery} />
+          <div className="flex w-full">
+            <div className="pl-[10%] font-mono text-base">{`Suara masuk: ${data?.pil_1.total ?? "Memuat..."}`}</div>
+          </div>
           <QuickCount data={dataPerCalon} />
         </div>
       </div>
@@ -202,7 +206,7 @@ const TPS = ({
       <SelectTrigger className="w-[200px] border-2 border-red-4 bg-cream shadow">
         <SelectValue placeholder="Pilih Zona" className="bg-cream" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="border-2 border-red-4 bg-cream">
         <SelectGroup>
           <SelectItem value="all">Semua Zona</SelectItem>
           <SelectLabel>Ganesha</SelectLabel>
@@ -232,7 +236,7 @@ const TPS = ({
 export const getServerSideProps = (async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (!session?.user.username) {
+  if (!session || !allowed.includes(session.user.username)) {
     return {
       redirect: {
         destination: "/",
