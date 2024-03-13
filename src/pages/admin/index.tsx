@@ -31,7 +31,7 @@ const Admin = () => {
     },
     onSuccess: (data) => {
       toast.success(`Berhasil mendaftarkan NIM: ${data.nim}`);
-      setTime(90);
+      setTime(120);
       setNim(data.nim);
       setToken(data.token ?? "");
       setIsOpen(true);
@@ -44,7 +44,7 @@ const Admin = () => {
         clearInterval(interval);
         setIsOpen(false);
         changeState.mutate({ nim: data.nim, state: false });
-      }, 90000);
+      }, 120000);
     },
   });
 
