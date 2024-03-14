@@ -21,7 +21,7 @@ import { toast } from "sonner";
 import { Toaster } from "~/components/ui/sonner";
 import { useDebounce } from "~/hook/useDebounce";
 import { useSearchParams } from "next/navigation";
-import { prisma } from '~/server/db';
+import { prisma } from "~/server/db";
 
 const Voting = () => {
   const [page, setPage] = useState(1);
@@ -238,11 +238,6 @@ const Voting = () => {
 
 export const getServerSideProps = (async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
-  const pw = await prisma.admin.findUnique({
-    where: {
-      username: session?.user.username,
-    },
-  });
 
   if (!session || session?.user.role !== "Voting") {
     return {
@@ -252,6 +247,12 @@ export const getServerSideProps = (async (context) => {
       },
     };
   }
+  
+  const pw = await prisma.admin.findUnique({
+    where: {
+      username: session?.user.username,
+    },
+  });
 
   if (session.user.passwordHash !== pw?.passwordHash) {
     return {
