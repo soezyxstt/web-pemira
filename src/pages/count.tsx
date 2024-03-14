@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 
-const allowed = ["adiadmin", "adivoter"];
+const allowed = ["adiadmin", "adivoter", "admin"];
 
 const DATAS = [
   {
