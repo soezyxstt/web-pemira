@@ -199,7 +199,7 @@ export const getServerSideProps = (async (context) => {
   if (session.user.passwordHash !== pw?.passwordHash) {
     return {
       redirect: {
-        destination: "/admin/logout",
+        destination: "/api/auth/signout",
         permanent: false,
       },
     };
