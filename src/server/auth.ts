@@ -22,6 +22,7 @@ declare module "next-auth" {
       id: string;
       username: string;
       role?: Role;
+      passwordHash?: string;
     };
   }
 
@@ -29,6 +30,7 @@ declare module "next-auth" {
     id: string;
     username: string;
     role?: Role;
+    passwordHash?: string;
   }
 }
 
@@ -54,6 +56,7 @@ export const authOptions: NextAuthOptions = {
         id: token.id,
         username: token.username,
         role: token.role,
+        passwordHash: token.passwordHash,
       },
     }),
     jwt: ({ token, user }) => {
@@ -61,6 +64,7 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id;
         token.username = user.username;
         token.role = user.role;
+        token.passwordHash = user.passwordHash;
       }
       return token;
     },
@@ -115,6 +119,7 @@ export const authOptions: NextAuthOptions = {
           id: user.id,
           username: user.username,
           role: user.role,
+          passwordHash: user.passwordHash,
         };
       },
     }),
@@ -130,8 +135,8 @@ export const authOptions: NextAuthOptions = {
      */
   ],
   pages: {
-    signIn: "/login",
-    signOut: "/",
+    signIn: "/admin/login",
+    signOut: "/admin/login",
   },
 };
 

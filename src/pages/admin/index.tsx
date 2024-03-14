@@ -18,6 +18,7 @@ import { authOptions } from "~/server/auth";
 import { api } from "~/utils/api";
 import { toast } from "sonner";
 import { Toaster } from "~/components/ui/sonner";
+import { prisma } from '~/server/db';
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -179,11 +180,25 @@ Admin.getLayout = (page: ReactNode) => page;
 
 export const getServerSideProps = (async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
+  const pw = await prisma.admin.findUnique({
+    where: {
+      username: session?.user.username,
+    },
+  })
 
-  if (session?.user.role !== "Administrator") {
+  if (!session || session?.user.role !== "Administrator") {
     return {
       redirect: {
         destination: "/admin/login",
+        permanent: false,
+      },
+    };
+  }
+
+  if (session.user.passwordHash !== pw?.passwordHash) {
+    return {
+      redirect: {
+        destination: "/admin/logout",
         permanent: false,
       },
     };
