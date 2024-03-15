@@ -12,7 +12,7 @@ export const k3m = [
     motto: "#SinergisInklusif",
     photo: "/no-1.png",
     porto:
-      "https://drive.google.com/file/d/135XGTKiIenjFdq4JXkQaIJTFl-2mkYYG/view?usp=drive_link",
+      "https://drive.google.com/file/d/17lptBX2voP-LnCdgKn1R6LytFAeaF42F/view?usp=drive_link",
     ig: "https://www.instagram.com/nabielirawan/",
     no: 1,
   },
@@ -30,7 +30,7 @@ export const k3m = [
     motto: "#RestorasiMarwah #KolektifIntelektual",
     photo: "/no-2.png",
     porto:
-      "https://drive.google.com/file/d/1ikZTnEcEzIleut8Ykb7eJpvCLgoptnEG/view?usp=drive_link",
+      "https://drive.google.com/file/d/16ksY2FO7lZ_DmThvC4FtCvucmqVn1nQV/view?usp=drive_link",
     ig: "https://www.instagram.com/fidelahuwaida/",
     no: 2,
   },
