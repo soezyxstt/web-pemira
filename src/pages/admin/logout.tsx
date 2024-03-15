@@ -1,8 +1,7 @@
-import { getSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useEffect } from "react";
 
 const Logout = () => {
-  const session = getSession();
   useEffect(() => {
     void signOut({ callbackUrl: "/api/auth/signout" });
   }, []);
