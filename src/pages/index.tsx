@@ -13,7 +13,7 @@ const Countdown = dynamic(() => import("~/components/countdown"), {
 
 export default function Home() {
   return (
-    <div className="dusty-bg flex h-screen w-full flex-1 snap-y snap-mandatory flex-col items-center justify-center [&_.ch]:px-[10vw]">
+    <div className="dusty-bg flex h-screen w-full flex-1 flex-col items-center justify-center [&_.ch]:px-[10vw]">
       <Bg className="top-0 h-[calc(100dvh)] bg-gradient-to-b from-cream from-85% to-brown-1" />
       <Bg className="top-[calc(100dvh)] h-dvh bg-brown-1" />
       <Bg className="top-[calc(200dvh)] h-dvh bg-brown-1" />
@@ -44,9 +44,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full snap-center">
+      <div className="w-full">
         <div
-          className={`ch isolate flex min-h-dvh w-full flex-col justify-start gap-6 text-center`}
+          className={`ch isolate flex min-h-screen w-full flex-col justify-start gap-6 text-center`}
         >
           <h1
             className={`text-custom md:text-6xl ${header.className} pt-12 md:pt-32`}
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full">
-        <div className="ch isolate z-[1] flex min-h-dvh w-full flex-col justify-center gap-16 py-[8vh] *:space-y-8 md:gap-24">
+        <div className="ch isolate z-[1] flex min-h-screen w-full flex-col justify-center gap-16 py-[8vh] *:space-y-8 md:gap-24">
           <div className="">
             <h1 className="text-custom __className_318c95 md:text-6xl">K3M</h1>
             <div className="flex flex-wrap justify-center gap-4 md:gap-[7vw]">
