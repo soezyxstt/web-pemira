@@ -14,10 +14,10 @@ const Countdown = dynamic(() => import("~/components/countdown"), {
 export default function Home() {
   return (
     <div className="dusty-bg flex h-screen w-full flex-1 flex-col items-center justify-center [&_.ch]:px-[10vw]">
-      <Bg className="top-0 h-[calc(100dvh)] bg-gradient-to-b from-cream from-85% to-brown-1" />
-      <Bg className="top-[calc(100dvh)] h-dvh bg-brown-1" />
-      <Bg className="top-[calc(200dvh)] h-dvh bg-brown-1" />
-      <Bg className="top-[calc(300dvh)] h-dvh bg-gradient-to-b from-brown-1 to-cream to-30%" />
+      <Bg className="top-0 h-[calc(100vh)] bg-gradient-to-b from-cream from-85% to-brown-1" />
+      <Bg className="top-[calc(100vh)] h-vh bg-brown-1" />
+      <Bg className="top-[calc(200vh)] h-vh bg-brown-1" />
+      <Bg className="top-[calc(300vh)] h-vh bg-gradient-to-b from-brown-1 to-cream to-30%" />
       <div className=" w-full snap-center">
         <div
           className={`ch isolate flex h-[calc(100vh-4rem)] w-full flex-col justify-center gap-6 text-center`}
@@ -80,7 +80,7 @@ export default function Home() {
         </div>
       </div>
       <div className=" w-full">
-        <div className="ch relative z-[1] flex h-dvh flex-col items-center justify-center gap-10 overflow-hidden text-center md:justify-end md:gap-16">
+        <div className="ch relative z-[1] flex h-vh flex-col items-center justify-center gap-10 overflow-hidden text-center md:justify-end md:gap-16">
           <h1 className="text-custom __className_318c95 md:text-6xl">
             Gunakan Suaramu!
           </h1>
