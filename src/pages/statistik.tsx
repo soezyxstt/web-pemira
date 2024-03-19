@@ -80,6 +80,7 @@ export const prodi = [
   { nim: 181, faculty: "Teknik Telekomunikasi" },
   { nim: 182, faculty: "STI" },
   { nim: 190, faculty: "Manajemen" },
+  { nim: 197, faculty: "TPB SBM" },
   { nim: 199, faculty: "TPB SAPPK" },
   { nim: 192, faculty: "Kewirausahaan" },
   { nim: 183, faculty: "Teknik Biomedis" },
@@ -103,7 +104,7 @@ export const FACULTIES = [
   { faculty: "FTSL", nims: [150, 153, 155, 157, 158, 166] },
   { faculty: "SAPPK", nims: [154, 152, 199] },
   { faculty: "FSRD", nims: [168, 170, 172, 173, 174, 175] },
-  { faculty: "SBM", nims: [190, 192] },
+  { faculty: "SBM", nims: [190, 192, 197] },
 ];
 
 const Statistik = () => {
@@ -134,9 +135,9 @@ const Statistik = () => {
           </div>
           <CampusPie data={data} />
         </div>
-        <div className="flex w-full gap-4 flex-1 flex-col pt-12 md:ml-[5vw] md:max-h-[65vh] md:pt-0">
+        <div className="flex w-full flex-1 flex-col gap-4 pt-12 md:ml-[5vw] md:max-h-[65vh] md:pt-0">
           <h1
-            className={`${header.className} text-custom text-3xl md:text-4xl md:hidden`}
+            className={`${header.className} text-custom text-3xl md:hidden md:text-4xl`}
           >
             Statistik Per Fakultas
           </h1>
@@ -169,14 +170,14 @@ const FacultyBarMobile = ({
           left: 5,
           bottom: 5,
         }}
-        layout='vertical'
+        layout="vertical"
       >
         <CartesianGrid strokeDasharray="3 3" stroke="#757272bb" />
         <XAxis
           stroke="black"
           fontFamily="Oxygen"
           fontWeight={600}
-          type='number'
+          type="number"
           fontSize={10}
         />
         <YAxis
@@ -185,10 +186,15 @@ const FacultyBarMobile = ({
           fontFamily="Oxygen"
           fontWeight={600}
           fontSize={10}
-          type='category'
+          type="category"
         />
         <Tooltip content={CustomTooltip} />
-        <Bar dataKey="votes" fill="#d2391a" name="Jumlah Suara" layout='vertical'>
+        <Bar
+          dataKey="votes"
+          fill="#d2391a"
+          name="Jumlah Suara"
+          layout="vertical"
+        >
           <LabelList
             dataKey="votes"
             position="right"
@@ -334,7 +340,7 @@ const SelectFaculty = ({
 }) => {
   return (
     <Select defaultValue={query} value={query} onValueChange={setQuery}>
-      <SelectTrigger className="w-[200px] border-2 border-red-4 bg-cream shadow ml-8 md:ml-20">
+      <SelectTrigger className="ml-8 w-[200px] border-2 border-red-4 bg-cream shadow md:ml-20">
         <SelectValue placeholder="Pilih Fakultas" />
       </SelectTrigger>
       <SelectContent className="border-2 border-red-4 bg-cream">
