@@ -18,7 +18,7 @@ export default function Home() {
       <Bg className="top-[calc(100vh)] h-screen bg-brown-1" />
       <Bg className="top-[calc(200vh)] h-screen bg-brown-1" />
       <Bg className="top-[calc(300vh)] h-screen bg-gradient-to-b from-brown-1 to-cream to-30%" />
-      <div className=" w-full snap-center">
+      <div className="w-full snap-center">
         <div
           className={`ch isolate flex h-[calc(100vh-4rem)] w-full flex-col justify-center gap-6 text-center`}
         >

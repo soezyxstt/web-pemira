@@ -10,7 +10,6 @@ const GuideVoting = () => {
       <GuideVote />
       <LokasiVoting />
       <FaQ />
-      {/* <h1 className={`${header.className} text-shadow shadow-teal-4 text-oren text-stroke-width-1 text-stroke-color-cream text-4xl z-[1]`}>Guide Voting</h1> */}
     </div>
   );
 };
