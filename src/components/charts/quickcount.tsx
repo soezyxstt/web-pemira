@@ -83,7 +83,7 @@ const QuickCount = ({
   );
 };
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+export const CustomTooltip = ({ active, payload, label }: any) => {
   if (active) {
     return (
       <div className="rounded-md border border-red-5 bg-cream p-4 font-mono text-base font-normal text-red-4 shadow-md">

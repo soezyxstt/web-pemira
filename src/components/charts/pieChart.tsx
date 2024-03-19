@@ -22,7 +22,6 @@ const PieCount = ({ data }: { data: { name: string; value: number, real: number 
           cx="50%"
           cy="50%"
           outerRadius={120}
-          fill="#8884d8"
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -56,7 +55,7 @@ const PieCount = ({ data }: { data: { name: string; value: number, real: number 
   );
 };
 
-const CustomTooltip = ({ active, payload }: any) => {
+export const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="flex items-center gap-4 rounded-md border border-red-5 bg-cream p-2 font-mono text-base text-red-4 shadow-md">
