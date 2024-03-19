@@ -96,7 +96,7 @@ export const FACULTIES = [
   { faculty: "FMIPA", nims: [101, 102, 103, 105, 160, 108] },
   { faculty: "SF", nims: [107, 116, 162] },
   { faculty: "SITH", nims: [106, 104, 161, 112, 114, 115, 119] },
-  { faculty: "FITB", nims: [120, 124, 128, 129, 151, 163] },
+  { faculty: "FITB", nims: [120, 128, 129, 151, 163] },
   { faculty: "FTTM", nims: [121, 122, 123, 125, 164] },
   { faculty: "FTI", nims: [130, 133, 134, 143, 144, 167] },
   { faculty: "STEI", nims: [132, 165, 135, 180, 181, 182, 183] },
