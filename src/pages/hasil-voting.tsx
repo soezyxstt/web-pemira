@@ -159,13 +159,13 @@ const Count = () => {
   };
 
   return (
-    <div className="flex flex-1 flex-col items-center md:justify-center bg-cream text-xl text-navy pb-10">
+    <div className="flex flex-1 flex-col items-center bg-cream pb-10 text-xl text-navy md:justify-center">
       <h1
-        className={`text-custom mb-6 mt-8 md:mb-10 md:m-0 text-3xl md:text-4xl px-8 ${header.className}`}
+        className={`text-custom mb-6 mt-10 px-8 text-3xl md:m-0 md:mb-10 md:text-4xl ${header.className}`}
       >
         Perolehan Suara Sementara
       </h1>
-      <div className="flex flex-col gap-20 md:flex-row items-center md:items-start">
+      <div className="flex flex-col items-center gap-6 md:gap-20 md:flex-row md:items-start">
         <div className="flex h-[45vh] w-[80vw] flex-col items-center md:h-[60vh] md:w-[25vw]">
           <Select onValueChange={setPil} defaultValue="1">
             <SelectTrigger className="w-[200px] border-2 border-red-4 bg-cream shadow">
@@ -182,10 +182,17 @@ const Count = () => {
           </Select>
           <PieCount data={dataPerCalonPie()} />
         </div>
-        <div className="flex w-[90vw] flex-1 flex-col items-center gap-4 md:h-[60vh] md:w-[50vw]">
+        <h1
+          className={`text-custom px-8 mt-10 text-3xl md:hidden ${header.className}`}
+        >
+          Perolehan Suara Per-Zona
+        </h1>
+        <div className="flex w-[90vw] flex-1 flex-col items-center gap-4 md:h-[65vh] md:w-[50vw]">
           <TPS query={query} setQuery={setQuery} />
           <div className="flex w-full">
-            <div className="pl-[10%] font-mono text-base">{`Suara masuk: ${data?.pil_1.total ?? "Memuat..."}`}</div>
+            <div className="pl-[10%] font-mono text-base">{`Suara masuk: ${
+              data?.pil_1.total ?? "Memuat..."
+            }`}</div>
           </div>
           <QuickCount data={dataPerCalon} />
         </div>
