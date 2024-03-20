@@ -61,11 +61,13 @@ export const prodi = [
   { nim: 155, faculty: "Teknik Kelautan" },
   { nim: 157, faculty: "RIL" },
   { nim: 160, faculty: "TPB FMIPA" },
-  { nim: 161, faculty: "TPB SITH" },
+  { nim: 161, faculty: "TPB SITH-S" },
+  { nim: 198, faculty: "TPB SITH-R" },
   { nim: 162, faculty: "TPB SF" },
   { nim: 163, faculty: "TPB FITB" },
   { nim: 164, faculty: "TPB FTTM" },
-  { nim: 165, faculty: "TPB STEI" },
+  { nim: 165, faculty: "TPB STEI-R" },
+  { nim: 196, faculty: "TPB STEI-K" },
   { nim: 166, faculty: "TPB FTSL" },
   { nim: 167, faculty: "TPB FTI" },
   { nim: 168, faculty: "TPB FSRD" },
@@ -96,11 +98,13 @@ export const FACULTIES = [
   { faculty: "FTMD", nims: [131, 136, 169, 137] },
   { faculty: "FMIPA", nims: [101, 102, 103, 105, 160, 108] },
   { faculty: "SF", nims: [107, 116, 162] },
-  { faculty: "SITH", nims: [106, 104, 161, 112, 114, 115, 119] },
+  { faculty: "SITH-S", nims: [106, 104, 161] },
+  { faculty: "SITH-R", nims: [198, 112, 114, 115, 119] },
   { faculty: "FITB", nims: [120, 128, 129, 151, 163] },
   { faculty: "FTTM", nims: [121, 122, 123, 125, 164] },
   { faculty: "FTI", nims: [130, 133, 134, 143, 144, 167] },
-  { faculty: "STEI", nims: [132, 165, 135, 180, 181, 182, 183] },
+  { faculty: "STEI-R", nims: [132, 165, 180, 181, 183] },
+  { faculty: "STEI-K", nims: [196, 135, 182] },
   { faculty: "FTSL", nims: [150, 153, 155, 157, 158, 166] },
   { faculty: "SAPPK", nims: [154, 152, 199] },
   { faculty: "FSRD", nims: [168, 170, 172, 173, 174, 175] },
@@ -215,7 +219,7 @@ const FacultyBarDekstop = ({
   data: { prodi: string | undefined; nim: string; votes: number }[];
 }) => {
   return (
-    <ResponsiveContainer width="100%" height={500}>
+    <ResponsiveContainer width="100%" height={450}>
       <BarChart
         width={500}
         height={500}

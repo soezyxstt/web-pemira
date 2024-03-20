@@ -10,7 +10,7 @@ import {
   LabelList,
   Label,
 } from "recharts";
-import { useMediaQuery } from '~/hook/useMediaQuery';
+import { useMediaQuery } from "~/hook/useMediaQuery";
 import { header } from "~/styles/fonts";
 
 const QuickCount = ({
@@ -34,43 +34,50 @@ const QuickCount = ({
         data={data}
         margin={{
           top: 5,
-          right: 30,
-          left: 20,
+          right: isDekstop ? 30 : 20,
+          left: isDekstop ? 20 : 5,
           bottom: 5,
         }}
+        layout={isDekstop ? "horizontal" : "vertical"}
       >
         <CartesianGrid strokeDasharray="3 3" stroke="#757272bb" />
         <XAxis
-          dataKey="name"
+          dataKey={isDekstop ? "name" : undefined}
           stroke="black"
           fontFamily="Oxygen"
           fontWeight={600}
-          fontSize={14}
-        />
-        <YAxis
-          stroke="black"
-          fontFamily="Oxygen"
-          fontWeight={600}
-          fontSize={14}
+          fontSize={isDekstop ? 14 : 12}
+          type={isDekstop ? "category" : "number"}
         >
-          <Label
-            value="Jumlah Suara"
-            position="insideLeft"
-            angle={-90}
-            fontFamily="Poppins"
-            fontWeight={500}
-            fontSize={18}
-          />
+        </XAxis>
+        <YAxis
+          dataKey={isDekstop ? undefined : "name"}
+          stroke="black"
+          fontFamily="Oxygen"
+          fontWeight={600}
+          fontSize={isDekstop ? 14 : 12}
+          type={isDekstop ? "number" : "category"}
+        >
+          {isDekstop && (
+            <Label
+              value="Jumlah Suara"
+              position="insideLeft"
+              angle={isDekstop ? -90 : 0}
+              fontFamily="Poppins"
+              fontWeight={500}
+              fontSize={18}
+            />
+          )}
         </YAxis>
         <Tooltip content={CustomTooltip} />
-        <Legend wrapperStyle={{fontSize: 14}} />
+        <Legend wrapperStyle={{ fontSize: 14, left: "50%", transform: "translateX(-50%)" }} />
         {["Pilihan 1", "Pilihan 2", "Pilihan 3", "Pilihan 4"].map(
           (pil, index) => (
             <Bar key={pil} dataKey={pil} fill={COLORS[index]} name={pil}>
               <LabelList
                 dataKey={pil}
-                position="top"
-                fontSize={14}
+                position={isDekstop ? "top" : "right"}
+                fontSize={isDekstop ? 14 : 12}
                 fontStyle="none"
                 fontFamily="sans-serif"
                 fontWeight={500}
