@@ -1,9 +1,6 @@
-import type { GetServerSideProps } from "next";
-import { getServerSession } from "next-auth/next";
 import { useState } from "react";
 import PieCount from "~/components/charts/pieChart";
 import QuickCount from "~/components/charts/quickcount";
-import { authOptions } from "~/server/auth";
 import { header } from "~/styles/fonts";
 import { api } from "~/utils/api";
 import {
@@ -15,8 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-
-const allowed = ["adiadmin", "adivoter", "admin"];
 
 const DATAS = [
   {
@@ -239,26 +234,5 @@ const TPS = ({
     </Select>
   );
 };
-
-export const getServerSideProps = (async (context) => {
-  const session = await getServerSession(context.req, context.res, authOptions);
-
-  if (!session || !allowed.includes(session.user.username)) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {
-      session: {
-        username: session.user.username ?? null,
-      },
-    },
-  };
-}) satisfies GetServerSideProps;
 
 export default Count;

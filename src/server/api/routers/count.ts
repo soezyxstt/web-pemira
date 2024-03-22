@@ -1,12 +1,12 @@
 import {
   createTRPCRouter,
-  protectedProcedure,
+  publicProcedure,
 } from "~/server/api/trpc";
 import { z } from "zod";
 import { TRPCClientError } from "@trpc/client";
 
 export const countRouter = createTRPCRouter({
-  getVotes: protectedProcedure
+  getVotes: publicProcedure
     .input(z.object({ tps: z.string().optional() }))
     .query(async ({ ctx, input }) => {
       const { tps } = input;
@@ -33,7 +33,7 @@ export const countRouter = createTRPCRouter({
         throw new TRPCClientError("Failed to get votes");
       }
     }),
-  getQuickCount: protectedProcedure
+  getQuickCount: publicProcedure
     .input(z.object({ tps: z.string().optional() }))
     .query(async ({ ctx, input }) => {
       const query = [
@@ -109,7 +109,7 @@ export const countRouter = createTRPCRouter({
         },
       };
     }),
-  getPilihan1: protectedProcedure
+  getPilihan1: publicProcedure
     .input(z.object({ tps: z.string().optional() }))
     .query(async ({ ctx }) => {}),
 });

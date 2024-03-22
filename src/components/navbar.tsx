@@ -40,6 +40,9 @@ const Navbar = () => {
         <li className="hidden hover:text-oren md:block">
           <Link href="/statistik">Statistik</Link>
         </li>
+        <li className="hidden hover:text-oren md:block">
+          <Link href="/hasil">Hasil Voting</Link>
+        </li>
       </ul>
       <div className={`${header.className} hidden md:block`}>
         {"#GerakInklusif"}
@@ -96,6 +99,9 @@ const Navbar = () => {
               </li>
               <li onClick={() => setIsExpanded(false)}>
                 <Link href="/statistik">Statistik</Link>
+              </li>
+              <li onClick={() => setIsExpanded(false)}>
+                <Link href="/hasil">Hasil Voting</Link>
               </li>
             </ul>
           </DrawerContent>
