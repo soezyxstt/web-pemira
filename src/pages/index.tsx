@@ -39,7 +39,7 @@ export default function Home() {
           <Countdown />
           <div className="text-red-4">
             {new Date() >= new Date("2024-03-13T07:00:00+07:00")
-              ? "PEMIRA sedang berlangsung!"
+              ? "PEMIRA sudah selesai!"
               : "sampai vote dimulai!"}
           </div>
         </div>
