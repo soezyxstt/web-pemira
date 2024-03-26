@@ -50,7 +50,7 @@ export const prodi = [
   { nim: 133, faculty: "Teknik Fisika" },
   { nim: 134, faculty: "Teknik Industri" },
   { nim: 135, faculty: "Teknik Informatika" },
-  { nim: 136, faculty: "Teknik Penerbangan" },
+  { nim: 136, faculty: "Teknik Dirgantara" },
   { nim: 137, faculty: "Teknik Material" },
   { nim: 144, faculty: "MRI" },
   { nim: 145, faculty: "Teknik Bioenergi" },
@@ -112,17 +112,93 @@ export const FACULTIES = [
   { faculty: "SBM", nims: [190, 192, 197] },
 ];
 
+const prodis = [
+  "Teknik Mesin",
+  "Teknik Dirgantara",
+  "Teknik Material",
+  "TPB FTMD",
+  "Matematika",
+  "Fisika",
+  "Kimia",
+  "Astronomi",
+  "Aktuaria",
+  "TPB FMIPA",
+  "Teknik Geologi",
+  "Teknik Geodesi",
+  "Oseanografi",
+  "Meteorologi",
+  "TPB FITB",
+  "Teknik Pertambangan",
+  "Teknik Perminyakan",
+  "Teknik Geofisika",
+  "Teknik Metalurgi",
+  "TPB FTTM",
+  "Teknik Sipil",
+  "Teknik Kelautan",
+  "Teknik Lingkungan",
+  "RIL",
+  "TPSDA",
+  "TPB FTSL",
+  "Sains dan Teknologi Farmasi",
+  "Farmasi Klinik dan Komunitas",
+  "TPB SF",
+  "Mikrobiologi",
+  "Biologi",
+  "TPB SITH-S",
+  "Rek. Kehutanan",
+  "Rek. Hayati",
+  "Rek. Pertanian",
+  "Tek. Pasca Panen",
+  "TPB SITH-R",
+  "Teknik Industri",
+  "MRI",
+  "Teknik Fisika",
+  "Teknik Kimia",
+  "Teknik Pangan",
+  "Teknik Bioenergi",
+  "TPB FTI",
+  "Teknik Elektro",
+  "Teknik TL",
+  "Teknik Biomedis",
+  "Teknik Telekomunikasi",
+  "TPB STEI-R",
+  "Teknik Informatika",
+  "STI",
+  "TPB STEI-K",
+  "Arsitektur",
+  "PWK",
+  "TPB SAPPK",
+  "Desain Interior",
+  "Desain Produk",
+  "Desain Komunikasi Visual",
+  "Seni Rupa",
+  "Kriya",
+  "TPB FSRD",
+  "Manajemen",
+  "Kewirausahaan",
+  "TPB SBM",
+];
+
+const suara = [
+  80, 32, 52, 81, 64, 61, 52, 30, 18, 102, 120, 94, 89, 71, 108, 110, 123, 60, 65, 71, 69, 52, 37, 28, 8, 68, 38, 22,
+  26, 42, 36, 41, 17, 32, 28, 23, 37, 28, 17, 60, 72, 21, 11, 56, 41, 23, 11, 63, 108, 65, 43, 44, 61, 173, 82, 12, 36, 18,
+  17, 38, 16, 57, 5, 37,
+];
+
 const Statistik = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const [faculty, setFaculty] = useState("ftmd");
   const nims =
     FACULTIES.find((f) => f.faculty.toLowerCase() === faculty)?.nims ?? [];
-  const facultyData = api.stats.getFacultyVotes.useQuery({ nims });
+  // const facultyData = api.stats.getFacultyVotes.useQuery({ nims });
   const data = api.stats.getCampusVotes.useQuery();
-  const prodiData = facultyData?.data?.map((object) => ({
-    ...object,
-    prodi: prodi.find((p) => p.nim.toString() === object.nim)?.faculty,
-  }));
+  const facultyData = prodis.map((prodi_, index) => ({
+    prodi: prodi_,
+    nim: prodi.find((f) => f.faculty === prodi_)?.nim.toString() ?? "",
+    votes: suara[index] ?? 0,
+  }))
+
+  const prodiData = facultyData.filter((f) => nims.includes(parseInt(f.nim)));
   return (
     <div className="dusty-bg relative w-full flex-1 flex-col items-center justify-center">
       <Bg />
