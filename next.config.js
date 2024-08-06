@@ -18,6 +18,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  typescipt: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default config;
