@@ -13,7 +13,8 @@
     "start": "next start",
     "docker:build": "docker compose -f docker-compose.dev.yml build",
     "docker:up": "docker compose -f docker-compose.dev.yml up",
-    "dockerize": "docker compose -f docker-compose.dev.yml up --build"
+    "dockerize": "docker compose -f docker-compose.dev.yml up --build",
+    "postinstall": "npx prisma generate"
   },
   "prisma": {
     "seed": "node --loader ts-node/esm prisma/seed.ts"
